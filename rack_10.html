@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#1B1A17" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="rack" />
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAElklEQVR4nO3cQXLTSACFYSc1d6AK7sCKC3ByLjCruUNSlVPAYgiVBMtWq7sl9evv20KCsH89Oo7Jw+UEvnz+9PPoa6De0/PLw9HXcMgFCHgORwS+2x8o4rntFXfXP0TEXNMz7i6fWMis0SPsx9afUMys1aOVZneIkKnRaq2bLLSYqdWqoaq7Qsj0ULPWmxdazPRS09amoMVMb1sbKw5azOxlS2tFQYuZvZU2tzpoMXOUkvZWBS1mjra2wbtBi5mzWNNi8299w5FuBm2dOZt7TS4GLWbO6labjhxEuRq0debslhr9K2gxM4prrTpyEOVd0NaZ0Xxs1kITRdBE+RO04wajetuuhSaKoInyeLk4bjC+14YtNFEETRRBE+XB+ZkkFpoogiaKoIkiaKL8c/QFpPrv3x83f/3rt+87XclcvMrR0L2Il4i7HUeORrbGXPuxvGehK7WO0VrXsdAVeiyrta4j6I16hifq7Rw5Nlgb3NLxofbjWeZluw7uhfj665a4PQtd6FaEWxe1x+eclTN0gV7h3fpYK15G0EQRdIGv375fXdMWxwJHizYEvcFr2HtF6NixnqArtYzaStcTNFEETRSvQxPFQhNF0EQRNFEETRRBE0XQRBE0UQRNFP9jpbOlNxZ530YfFpoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJ4j/JduJH5h7DQndQ8pOO/FSktix0Q7VxWut6FrqRFktrretZ6EqlZ+U1v99SbyfoClu/8PMFYz+C3qjF0lrr9gRdqPW6Wuu2BF2g16KKuh1Br7BXcI4g9QR9x97raa3rCHrB0WFZ620EfcXRMZ/tOkYi6A/OtoyiLiPo384eztlutLMS9GWcWM5+053B1EGPGsgoN+ARpn233agxXy7rrmnWd+5NudApCzfyTdnLVEGnBpByg7YwTdDpT3rqzVoqPuiZnuiZ/q5LooOe9QlO/9folsigZw35rVkfg7igZ30il8y21lFBz/bkrTXTTR4R9ExP2FazPEbDB22Vy6Q/XsMGPcvi9JD82A0ZdPITsqfEtR4qaCG3l/aYDhP0rO8eO5MRoh7m7aMjPJjJRnn8hwma44wS8+UiaMIImiiCJsowr3LAGhaaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJsrj0/PLw9EXAS08Pb88WGiiCJoogibK4+Xy/9nj6AuBGq8NW2iiCJoof4J27GBUb9u10EQRNFHeBe3YwWg+NmuhifJX0FaaUVxr9epCi5qzW2rUkYMoi0Fbac7qVps3F1rUnM29Jh05iHI3aCvNWaxpcdVCi5qjrW1w9ZFD1BylpL2iM7So2Vtpc8VfFIqavWxpbdOrHKKmt62NbX7ZTtT0UtNWkyi/fP70s8XnYW4tRrLJN1asNbVaNdQ8RGtNidZj2Pxb39aatXq00jU+a801PUdvtzUV99z2+pf7kOOBuOdwxPHzFOddgWc4w9dPvwCUKNeJbbRsCQAAAABJRU5ErkJggg==" />
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAE8ElEQVR4nO3dS24bRxSG0ZaQPRiw95CRN5CVZwMZZQ8SoFU4A0eGRPPRj6rqqvrPmSamGPJ+dbtpQnlaOvPt65cfZz8H6nl5fXs6+zl8dOqTMewsy7lRNP/Bhp57WsfQ7IcZfLZoFUL1H2LwOaJ2CNUe3OBTUq0Qij+owaem0iE8l3www09tpWesSE0GnzOU2AaHN4Dh5ywlZu9QAIafsx2dwd0BGH56cWQWdwVg+OnN3pncHIDhp1d7ZnNTAIaf3m2d0dUBGH5GsWVWVwVg+BnN2pl9GIDhZ1RrZrfoVyFgNHcDcPozukczfDMAw88s7s2ySyCiXQ3A6c9sbs20DUC03wJw+jOra7NtAxDtUwBOf2Z3OeM2ANF+BeD0J8XHWbcBiCYAoj0vi8sf8rzPvA1ANAEQTQBEEwDRntwAk8wGIJoAiCYAogmAaH+c/QTS/PvP33f/+Z/f/2r0TFgWnwI18WjobxFDfQKoaO/gXxJCPe4BKik1/KUfi88EUEGNgRVBHQIorOagiqA89wAFrR3QW9f0R/882wmgkNIfb/q4tA2XQAXUGNZHf8blUBkCqOzISe2Ur08AB907iUsM8L3HsAWOE8BBtwa05OltE9Tju0AFfBxQp/JYfAo0kFtx2RD7uQQimgCIJgCiuQcgmg1ANAEQTQBEEwDRBEA0ARBNAEQTANF8G/QkvtjWBxuAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAovmtEI35n2D0xQZoaMvvDfU7RtuwARo4Osy2QT02QGUlTnLboB4boJKt1/pr/n2boDwBVLD3RtcNcnsCKKzESW4btCOAQkqf3rZBGwIooNaJLYL6BHBAqwF1SVSPAHZqfTrbBnUIYKOzB9E2KEsAG5w9/L09jxkIYKXeTl4RlCGAB3oftN7CHI0A7hhluHqPtGcCuGLUgRol2J4I4MKow/9u9OffmgD+N9PgzPTfUpsAlnkHxiXRY/EBzD4ks8ZdSmwAaYMxe+h7RQaQOgxp0a8RFYAB8BpcignAG/9Z6ha8NH0ABv82r83kAXiD10neBtMGkPym7pF6WEwXQOobWULiazdVAE79MpJexykCSDy5akt5TYcPIOWNOsvs22DYAAx+OzO/1kMG4Lcl92u0CIb89eijvcgpRnxfhgyA/ow4/MsiAMIJgGgCINqQnwJBKTYA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARHt+eX17OvtJwBleXt+ebACiCYBoAiCaAIj2vCw/bwbOfiLQ0vvM2wBEEwDRfgXgMogUH2fdBiDapwBsAWZ3OeM2ANF+C8AWYFbXZtsGINrVAGwBZnNrpm0Aot0MwBZgFvdm+e4GEAGjezTDLoGI9jAAW4BRrZndVRtABIxm7cyuvgQSAaPYMqub7gFEQO+2zujmm2AR0Ks9s7nrUyAR0Ju9M7n7Y1AR0Isjs3jo7wFEwNmOzuDhvwgTAWcpMXtFh/fb1y8/Sj4eXFPy0C36VQjbgNpKz1i1gbUNKKnW4Vr9xBYCR9S+qmh2ySIEtmh1Od38ml0I3NP6PvLUm1YxsCznfnjS3ac2ophbb58U/gfhI/w7H2h7KwAAAABJRU5ErkJggg==" />
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22rack%22%2C%20%22short_name%22%3A%20%22rack%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22background_color%22%3A%20%22%23F3EFE6%22%2C%20%22theme_color%22%3A%20%22%231B1A17%22%2C%20%22start_url%22%3A%20%22.%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAE8ElEQVR4nO3dS24bRxSG0ZaQPRiw95CRN5CVZwMZZQ8SoFU4A0eGRPPRj6rqqvrPmSamGPJ%2BdbtpQnlaOvPt65cfZz8H6nl5fXs6%2Bzl8dOqTMewsy7lRNP/Bhp57WsfQ7IcZfLZoFUL1H2LwOaJ2CNUe3OBTUq0Qij%2Bowaem0iE8l3www09tpWesSE0GnzOU2AaHN4Dh5ywlZu9QAIafsx2dwd0BGH56cWQWdwVg%2BOnN3pncHIDhp1d7ZnNTAIaf3m2d0dUBGH5GsWVWVwVg%2BBnN2pl9GIDhZ1RrZrfoVyFgNHcDcPozukczfDMAw88s7s2ySyCiXQ3A6c9sbs20DUC03wJw%2BjOra7NtAxDtUwBOf2Z3OeM2ANF%2BBeD0J8XHWbcBiCYAoj0vi8sf8rzPvA1ANAEQTQBEEwDRntwAk8wGIJoAiCYAogmAaH%2Bc/QTS/PvP33f/%2BZ/f/2r0TFgWnwI18WjobxFDfQKoaO/gXxJCPe4BKik1/KUfi88EUEGNgRVBHQIorOagiqA89wAFrR3QW9f0R/882wmgkNIfb/q4tA2XQAXUGNZHf8blUBkCqOzISe2Ur08AB907iUsM8L3HsAWOE8BBtwa05OltE9Tju0AFfBxQp/JYfAo0kFtx2RD7uQQimgCIJgCiuQcgmg1ANAEQTQBEEwDRBEA0ARBNAEQTANF8G/QkvtjWBxuAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAovmtEI35n2D0xQZoaMvvDfU7RtuwARo4Osy2QT02QGUlTnLboB4boJKt1/pr/n2boDwBVLD3RtcNcnsCKKzESW4btCOAQkqf3rZBGwIooNaJLYL6BHBAqwF1SVSPAHZqfTrbBnUIYKOzB9E2KEsAG5w9/L09jxkIYKXeTl4RlCGAB3oftN7CHI0A7hhluHqPtGcCuGLUgRol2J4I4MKow/9u9OffmgD%2BN9PgzPTfUpsAlnkHxiXRY/EBzD4ks8ZdSmwAaYMxe%2Bh7RQaQOgxp0a8RFYAB8BpcignAG/9Z6ha8NH0ABv82r83kAXiD10neBtMGkPym7pF6WEwXQOobWULiazdVAE79MpJexykCSDy5akt5TYcPIOWNOsvs22DYAAx%2BOzO/1kMG4Lcl92u0CIb89eijvcgpRnxfhgyA/ow4/MsiAMIJgGgCINqQnwJBKTYA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARBMA0QRANAEQTQBEEwDRBEA0ARBNAEQTANEEQDQBEE0ARHt%2BeX17OvtJwBleXt%2BebACiCYBoAiCaAIj2vCw/bwbOfiLQ0vvM2wBEEwDRfgXgMogUH2fdBiDapwBsAWZ3OeM2ANF%2BC8AWYFbXZtsGINrVAGwBZnNrpm0Aot0MwBZgFvdm%2Be4GEAGjezTDLoGI9jAAW4BRrZndVRtABIxm7cyuvgQSAaPYMqub7gFEQO%2B2zujmm2AR0Ks9s7nrUyAR0Ju9M7n7Y1AR0Isjs3jo7wFEwNmOzuDhvwgTAWcpMXtFh/fb1y8/Sj4eXFPy0C36VQjbgNpKz1i1gbUNKKnW4Vr9xBYCR9S%2Bqmh2ySIEtmh1Od38ml0I3NP6PvLUm1YxsCznfnjS3ac2ophbb58U/gfhI/w7H2h7KwAAAABJRU5ErkJggg%3D%3D%22%2C%20%22sizes%22%3A%20%22192x192%22%2C%20%22type%22%3A%20%22image/png%22%7D%2C%20%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAP20lEQVR4nO3dy20cRxSG0abgHARIOXjlBBy5E/DKOdiAo5AXxFgjipxnPW7Vf87eQk%2BR7Pv1nSH9clDS1y%2Bfv82%2BBoAW/v7n35fZ18DPfFEmMeABXgmEORz6AIY9wH1EQX8OuAMDH6AtQdCeA23AwAcYSxA8zwE%2ByNAHqEEMPMah3cHQB6hNDNzOQV1h6AOsSQxc5nA%2BYPAD7EEIvM%2BhnDH0AfYmBr5zEIfBD5BGCIQHgMEPkC05BCJfuMEPwLnEEIh6wQY/AJckhUDECzX4AbhHQgh8mn0BvRn%2BANwrYXZsWzgJXzwA%2Btt1G7DdizL4AehhtxDY6i0Awx%2BAXnabMVvUzG5fFABq22EbsPwGwPAHYLQdZs/SAbDDFwCANa0%2Bg5ZcYax%2B6ADsZcW3BJbbABj%2BAFSz4mxaKgBWPGAAMqw2o5ZYWax2qABkW%2BEtgfIbAMMfgNWsMLtKB8AKBwgA76k%2Bw8oGQPWDA4BrKs%2BykgFQ%2BcAA4B5VZ1q5AKh6UADwqIqzrVQAVDwgAGih2owrEwDVDgYAWqs060oEQKUDAYCeqsy86QFQ5SAAYJQKs29qAFQ4AACYYfYMnBYAs184AMw2cxZOCQDDHwBezZqJwwPA8AeAH82YjUMDwPAHgPeNnpHDAsDwB4DLRs7KIQFg%2BAPAbUbNzOl/BwAAGK97AHj6B4D7jJidXQPA8AeAx/Seod0CwPAHgOf0nKU%2BAwAAgboEgKd/AGij10xtHgCGPwC01WO2Ng0Awx8A%2Bmg9Y30GAAACNQsAT/8A0FfLWdskAAx/ABij1cz1FgAABHo6ADz9A8BYLWavDQAABHoqADz9A8Acz87ghwPA8AeAuZ6Zxd4CAIBADwWAp38AqOHRmWwDAACB7g4AT/8AUMsjs9kGAAAC3RUAnv4BoKZ7Z7QNAAAEujkAPP0DQG33zGobAAAIdFMAePoHgDXcOrNtAAAgkAAAgEBXA8D6HwDWcsvstgEAgEAXA8DTPwCs6doMtwEAgEACAAACfRgA1v8AsLZLs9wGAAACCQAACPRuAFj/A8AePprpNgAAEEgAAECgnwLA%2Bh8A9vLebLcBAIBAAgAAAgkAAAj0QwB4/x8A9vR2xtsAAEAgAQAAgQQAAAT6PwC8/w8Aezuf9TYAABBIAABAIAEAAIEEAAAE%2BnQcPgAIAClOM98GAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAINCLvwEAAHlsAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAL9MvsCgL7%2B%2BvOPh/67X3/7vfGVAJX4Q0CwmUcH/jWCAPYiAGBxvQb%2BNYIA1iYAYFGzBv9bQgDWJABgMVUG/1tCANYiAGARVQf/W0IA1iAAoLhVBv9bQgBq83cAoLBVh/9xrH3tkMAGAArabXjaBkA9NgBQzG7D/zj2fE2wOgEAhew8KHd%2BbbAiAQBFJAzIhNcIq/AZAJgsdSj6XADMZQMAE6UO/%2BPIfu1QgQAAgEACACbxBOwMYCYBABMYfN85C5jDhwBhsOr/%2B97q1we0IQBgoJHDtdVAXfGaget%2BmX0BQFuth%2Bjp37Oqh73YAMAgvQfoqKfnXV4HpBMAMEDPoTlrYO74miCJ3wKAhc0clIY0rM0GADrr8aRcbfgmvEbYjQ0ALKbiYKx4TcBlAgA6av1kXHnQtr42v3UAfQkAWETl4X%2BywjUCrwQAdOIJ9nnOEPoRALCAlZ6sV7pWSCYAoLgVB2rLa7YFgD78KWDo5HwIGmJANf4OAAx2Twys%2BPR/rlX4rH4OUJENAAxmMwBUYAMABbwXArs89doCQE02AFCArQAwmg0A0F2LqLEBgLb8GiAABBIAwBK8NQJtCQAACCQAgO68fw/1CAAACCQAACCQAACAQAIAAAL5Q0AAEMgGAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEACAAACCQAACCQAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAgkAAAgkAAAgkAAAgEC/zL4AoJ%2B//vzj6X/j199%2Bb3AlQDU2AAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAGzqrz//KPXvALW8fP3y%2BdvsiwDa6Tmwf/3t927/NjCWDQBspPfTum0A7MMGADYwYzDbBsDabABgcbOeym0DYG02ALCoSgPYNgDWYwMAC6o0/I%2Bj3vUA19kAwEKqD1qbAFiHAIBFVB/%2B54QA1OctAFjASsP/ONa7XkhkAwCF7TBIbQOgJhsAKGqH4X8c%2B7wO2I0NABSz88C0DYA6bACgkJ2H/3Hs//pgJTYAUEDiYLQNgLlsAGCymcN/5hBOjB6oxAYAJpk9AM%2BHf2qEQDIBABNUHbhVrwtoTwDAQJWe%2Bj8iAiCDAIBBVhusq10vcB8fAoQBVhymPiAIe7MBgI5WHPxvzR7GtgHQhwCATnYY/ud2ez2QTgBAYzs/Me/82iCNAICGUp6SU14n7EwAQAOJT8YiANYmAOBJ6YMw/fXDqgQAPCjxqf8jIgDWIwDgAQbe%2B5wLrEMAwB089V8nAmANAgBuZLDdTihBfQIArjDMHieaoC4BABcYYM8TUFCTAIAPGP5tOU%2BoRQDAGwZVP84W6hAAcMaAGsM5w3wCAA7vU88gAmAuAUA8g2gu5w9zCABieeqvQwTAeAKASAZOPYIMxhIARDFk6hNnMIYAIIbBsg6hBv0JALZnmKxLtEE/AoCtGSDr8zWEPgQA2zI49uLrCW0JALZjUOzL1xbaEQBsxYDI4OsMzxMAbMEH/fKIAHiOAGB5BkEu4QePEwAsy82fExEI9xMALMkNn7cEIdxHALAUN3muEYdwGwHAMtzYuZVQhOsEAOW5mfMo0QgfEwCU5gbOs3wPwfsEAGW5cdOS7yf4kQCgHDdqevG9Bd8JAEpxg2YE32cgACjCB/0YTQSQTgAwnRsxswhPkgkApnHzpQoRSiIBwBRuuFQjSEkjABjKTZbqxCkpBADDuLGyCt%2BrJBAAdOepn1UJAXYmAOjKDZTV%2BR5mVwKAbtw42YnvZ3YjAGjOjZJd%2Bd5mJwKAptwg2Z3PtLALAUATboqkEbusTgDwNDdCUglfViYAeJibH7wSwaxIAPAQNzz4kZ8JViMAuIunfrhMCLAKAcDN3NjgNn5WWIEA4CpP/fAYIUBlAoCL3MDgOX6GqEoA8C5P/dCOnycqEgD8xBML9OFni0oEAD9wg4K%2BbAOoQgBwHIfBD6P5mWO2T7MvgPnciGC8md/7s7cQ1GADEGz2TcDwh1cinBkEQCg3HKjFzySjCYAwnvqhNiHAKAIgiBsLrMHPKiMIgACe%2BmE9fm7pTQBszpMErM3PML0IgE3NfnoA9iEE9uTvAGzI8Adack/ZkwDYkFoHWnJP2ZMAAIBAAmBTih1owb1kXwJgY35wgWe4h%2BxNAGzODzDwCPeO/QkAAAgkAAIoeeAe7hkZBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgV6%2Bfvn8bfZFAABj2QAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAEAgAQAAgQQAAAQSAAAQSAAAQCABAACBBAAABBIAABBIAABAIAEAAIEEAAAEEgAAEEgAAECgT3//8%2B/L7IsAAMb5%2B59/X2wAACCQAACAQAIAAAIJAAAIJAAAIJAAAIBAAgAAAn06jtffB5x9IQBAf6eZbwMAAIEEAAAEEgAAEEgAAECg/wPABwEBYG/ns94GAAACCQAACCQAACDQDwHgcwAAsKe3M94GAAACCQAACCQAACDQTwHgcwAAsJf3ZrsNAAAEEgAAEOjdAPA2AADs4aOZbgMAAIEEAAAE%2BjAAvA0AAGu7NMttAAAgkAAAgEAXA8DbAACwpmsz3AYAAAJdDQBbAABYyy2z2wYAAAIJAAAIdFMAeBsAANZw68y2AQCAQDcHgC0AANR2z6y2AQCAQHcFgC0AANR074y2AQCAQHcHgC0AANTyyGy2AQCAQA8FgC0AANTw6Ey2AQCAQA8HgC0AAMz1zCx%2BagMgAgBgjmdnsLcAACDQ0wFgCwAAY7WYvTYAABCoSQDYAgDAGK1mbrMNgAgAgL5azlpvAQBAoKYBYAsAAH20nrHNNwAiAADa6jFbu7wFIAIAoI1eM9VnAAAgULcAsAUAgOf0nKVdNwAiAAAe03uGdn8LQAQAwH1GzE6fAQCAQEMCwBYAAG4zamYO2wCIAAC4bOSsHPoWgAgAgPeNnpHDPwMgAgDgRzNm45QPAYoAAHg1ayZO%2By0AEQBAupmzcOqvAYoAAFLNnoHT/w7A7AMAgNEqzL7pAXAcNQ4CAEaoMvNKBMBx1DkQAOil0qwrEwDHUetgAKClajOuVAAcR70DAoBnVZxt5QLgOGoeFAA8oupMKxkAx1H3wADgVpVnWdkAOI7aBwcAl1SfYaUD4DjqHyAAvLXC7Cp/gee%2Bfvn8bfY1AMBHVhj8J%2BU3AOdWOlgAsqw2o5YKgONY74AB2N%2BKs2m5Cz7nLQEAZlpx8J8stwE4t/LBA7C21WfQ0gFwHOt/AQBYzw6zZ/kXcM5bAgD0tMPgP1l%2BA3Bupy8MALXsNmO2ejHnbAMAaGG3wX%2By5Ys6JwQAeMSug/9kq7cA3rP7FxCA9hJmx/Yv8JxtAACXJAz%2Bk5gXek4IAHAuafCfxL3gc0IAIFvi4D%2BJfeHnhABAluTBfxJ/AOeEAMDeDP7vHMQHxADAHgz99zmUK4QAwJoM/ssczh3EAEBthv7tHNSDxABADYb%2BYxxaA2IAYCxD/3kOsANBANCWgd%2BeAx1AEADcx8DvzwFPIgoAXhn2czj0ogQCsAsDvqb/AGtMH6hdRq5bAAAAAElFTkSuQmCC%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/png%22%7D%5D%7D" />
+<title>rack · wishlist, wardrobe & brands</title>
+<style>
+  :root{
+    --paper:#E9E5DC; --card:#FBFAF6; --ink:#1B1A17; --soft:#6B675E;
+    --faint:#9A968C; --line:#D7D1C5; --accent:#7A2E2E;
+    --sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+    --mono:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;
+    --serif:Georgia,'Times New Roman',serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 16px 64px;}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    padding:22px 0 16px;border-bottom:1px solid var(--line);}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .word{font-family:var(--serif);font-size:23px;letter-spacing:.5px;line-height:1;}
+  .sub{font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--faint);margin-top:3px;}
+  .hbtns{display:flex;gap:8px;}
+  .ghost{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;
+    color:var(--soft);background:transparent;border:1px solid var(--line);border-radius:5px;padding:6px 11px;cursor:pointer;}
+  .ghost:hover{border-color:var(--ink);}
+  .tabs{display:flex;gap:4px;margin-top:18px;flex-wrap:wrap;}
+  .tab{font-family:var(--sans);font-size:15px;font-weight:500;color:var(--faint);background:none;border:none;
+    border-bottom:2px solid transparent;padding:6px 10px 9px;cursor:pointer;}
+  .tab.on{font-weight:700;color:var(--ink);border-bottom-color:var(--accent);}
+  .tab .n{font-family:var(--mono);font-size:11px;color:var(--faint);}
+  .controls{display:flex;gap:10px;align-items:center;margin:16px 0 4px;flex-wrap:wrap;}
+  .searchbox{position:relative;flex:1 1 220px;min-width:180px;}
+  .searchbox span{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--faint);font-size:13px;}
+  input,textarea,select{width:100%;font-family:var(--sans);font-size:14px;color:var(--ink);background:#fff;
+    border:1px solid var(--line);border-radius:5px;padding:9px 10px;outline:none;}
+  input:focus,textarea:focus,select:focus{border-color:var(--ink);}
+  #search{padding-left:28px;background:var(--card);}
+  .add{font-family:var(--sans);font-size:14px;font-weight:600;color:#fff;background:var(--ink);border:none;
+    border-radius:5px;padding:9px 16px;cursor:pointer;white-space:nowrap;}
+  .filt{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+  .seg{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.3px;padding:5px 9px;
+    border-radius:4px;cursor:pointer;color:var(--soft);background:transparent;border:1px solid var(--line);}
+  .seg.on{color:#fff;}
+  .tagrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;align-items:center;}
+  .tlabel{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--faint);margin-right:2px;}
+  .chip{font-family:var(--mono);font-size:11px;color:var(--soft);background:#fff;border:1px solid var(--line);
+    border-radius:3px;padding:2px 8px;cursor:pointer;}
+  .chip.on{color:#fff;background:var(--accent);border-color:var(--accent);}
+  .grid{display:grid;gap:14px;margin-top:22px;}
+  .grid.pieces{grid-template-columns:repeat(auto-fill,minmax(190px,1fr));}
+  .grid.brands{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));}
+  .rcard{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;
+    transition:transform .14s ease,box-shadow .14s ease;}
+  .rcard:hover{transform:translateY(-2px);box-shadow:0 10px 26px -16px #1b1a1755;}
+  .thumb{position:relative;height:150px;background:#EFEBE2;border-bottom:1px solid var(--line);}
+  .thumb img{width:100%;height:100%;object-fit:cover;}
+  .thumb .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;opacity:.3;}
+  .price{position:absolute;top:8px;right:8px;font-family:var(--mono);font-size:12px;color:var(--ink);
+    background:#FBFAF6E6;border:1px solid var(--line);border-radius:4px;padding:2px 7px;}
+  .body{padding:11px 12px 13px;display:flex;flex-direction:column;gap:7px;flex:1;}
+  .toprow{display:flex;justify-content:space-between;gap:8px;}
+  .name{font-size:14px;font-weight:600;color:var(--ink);line-height:1.25;}
+  .bname{font-family:var(--serif);font-size:17px;color:var(--ink);line-height:1.2;}
+  .meta{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:2px;}
+  .editb{flex-shrink:0;border:none;background:none;cursor:pointer;color:var(--faint);font-size:15px;}
+  .tags{display:flex;flex-wrap:wrap;gap:4px;}
+  .ttag{font-family:var(--mono);font-size:10px;color:var(--soft);background:#fff;border:1px solid var(--line);border-radius:3px;padding:1px 5px;}
+  .notes{font-size:12px;color:var(--soft);line-height:1.4;}
+  .foot{display:flex;flex-direction:column;gap:7px;margin-top:auto;padding-top:4px;}
+  .footrow{display:flex;justify-content:space-between;align-items:center;}
+  .badge{font-family:var(--mono);font-size:10px;letter-spacing:.3px;text-transform:uppercase;border-radius:3px;padding:1px 5px;border:1px solid;}
+  .badgebtn{border:none;background:none;padding:0;cursor:pointer;}
+  .openl{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--accent);text-decoration:none;}
+  .openl:hover{opacity:.7;}
+  .moveb{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--soft);
+    background:transparent;border:1px solid var(--line);border-radius:4px;padding:5px 0;cursor:pointer;width:100%;}
+  .moveb.buy{color:#46663F;border-color:#46663F55;}
+  .empty{text-align:center;padding:54px 16px;border:1px dashed var(--line);border-radius:10px;background:#FBFAF680;margin-top:22px;}
+  .empty .t{font-size:15px;font-weight:600;color:var(--soft);margin-bottom:6px;}
+  .empty .s{font-size:13px;color:var(--faint);margin-bottom:16px;}
+  .overlay{position:fixed;inset:0;background:#1B1A1766;display:none;align-items:flex-start;justify-content:center;
+    padding:5vh 16px;z-index:50;overflow-y:auto;}
+  .overlay.show{display:flex;}
+  .modal{width:100%;max-width:460px;background:var(--card);border:1px solid var(--line);border-radius:8px;
+    box-shadow:0 24px 60px -20px #1b1a1755;padding:22px;}
+  .mhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+  .mhead h2{margin:0;font-size:17px;font-weight:700;}
+  .x{border:none;background:none;font-size:22px;color:var(--faint);cursor:pointer;line-height:1;}
+  .fl{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--faint);margin-bottom:5px;margin-top:12px;}
+  .frow{display:flex;gap:10px;}
+  .mfoot{display:flex;justify-content:space-between;align-items:center;margin-top:18px;}
+  .del{border:none;background:none;color:var(--accent);font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;cursor:pointer;}
+  .mbtns{display:flex;gap:8px;}
+  .cancel{padding:8px 14px;border-radius:5px;border:1px solid var(--line);background:transparent;color:var(--soft);font-size:13px;cursor:pointer;}
+  .savebtn{padding:8px 16px;border-radius:5px;border:none;background:var(--ink);color:#fff;font-size:13px;font-weight:600;cursor:pointer;}
+  ::placeholder{color:var(--faint);}
+  /* colour dots on cards */
+  .cdots{display:flex;gap:5px;align-items:center;}
+  .cdot{width:13px;height:13px;border-radius:50%;border:1px solid #1b1a1733;box-shadow:inset 0 0 0 1px #ffffff55;}
+  /* swatch picker in modal */
+  .swwrap{margin-top:4px;}
+  .swfam{font-family:var(--mono);font-size:9px;letter-spacing:.5px;text-transform:uppercase;color:var(--faint);margin:8px 0 4px;}
+  .swgrid{display:flex;flex-wrap:wrap;gap:5px;}
+  .sw{width:22px;height:22px;border-radius:4px;border:1px solid #1b1a1722;cursor:pointer;padding:0;position:relative;}
+  .sw.on{box-shadow:0 0 0 2px var(--card),0 0 0 3.5px var(--ink);}
+  .sw.clear{background:#fff;color:var(--faint);font-size:12px;display:flex;align-items:center;justify-content:center;}
+  /* outfit cards */
+  .grid.outfits{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));}
+  .ocard{overflow:hidden;}
+  .ostrip{display:flex;height:110px;background:#EFEBE2;border-bottom:1px solid var(--line);}
+  .oth{flex:1;min-width:0;border-right:1px solid var(--line);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+  .oth:last-child{border-right:none;}
+  .oth img{width:100%;height:100%;object-fit:cover;}
+  .oth.ophc{opacity:.6;}
+  .obig{display:block;width:34px;height:34px;border-radius:50%;border:1px solid #1b1a1733;}
+  .omore{font-family:var(--mono);font-size:14px;color:var(--soft);background:#E4DFD4;}
+  .oempty{flex:1;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--faint);}
+  .cok{font-family:var(--mono);font-size:11px;color:#46663F;letter-spacing:.2px;}
+  .cwarn{font-family:var(--mono);font-size:11px;color:#9A6A12;letter-spacing:.2px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+  .cwarn .cdot,.cok .cdot{width:11px;height:11px;}
+  .cnote{font-family:var(--mono);font-size:10.5px;color:var(--faint);}
+  .linkb{border:none;background:none;color:var(--accent);font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.3px;cursor:pointer;padding:0;}
+  /* pick grid in outfit modal */
+  .pickgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px;margin-top:4px;}
+  .pit{padding:0;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;text-align:left;}
+  .pit.on{border-color:var(--ink);box-shadow:0 0 0 1.5px var(--ink);}
+  .pitph{width:100%;height:64px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+  .pitph img{width:100%;height:100%;object-fit:cover;display:block;}
+  .pitn{font-size:11px;line-height:1.2;padding:5px 6px;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .clashprev{margin-top:10px;min-height:18px;}
+  /* sort, stats, sale */
+  .sortsel{width:auto;flex:0 0 auto;background:var(--card);font-size:13px;padding:9px 8px;}
+  .stats{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.3px;margin:12px 0 0;min-height:14px;}
+  .saletag{position:absolute;top:8px;left:8px;font-family:var(--mono);font-size:9px;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:#9A6A12;border-radius:3px;padding:2px 6px;z-index:1;}
+  .price s{margin-left:4px;font-size:10px;color:var(--faint);}
+  .cap-a{display:inline-block;text-decoration:none;margin:4px 0 2px;}
+  .cap-a:active{transform:translateY(1px);}
+  .metarow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .cat{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.5px;text-transform:uppercase;color:var(--soft);background:#00000008;border:1px solid var(--line);border-radius:3px;padding:2px 6px;}
+  .gapnote{font-family:var(--mono);font-size:10.5px;color:#9A6A12;letter-spacing:.2px;margin-top:4px;}
+  .photobox{border:1.5px dashed var(--line);border-radius:8px;background:#EFEBE2;min-height:120px;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;text-align:center;color:var(--faint);font-family:var(--mono);font-size:12px;padding:10px;margin-top:4px;}
+  .photobox.has{border-style:solid;padding:0;background:#000;}
+  .photobox img{width:100%;max-height:280px;object-fit:contain;display:block;}
+  .photohint{line-height:1.5;}
+  .photohint b{color:var(--soft);font-weight:600;}
+  /* quantity stepper */
+  .qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;}
+  .qty button{border:none;background:none;font-family:var(--mono);font-size:14px;line-height:1;color:var(--soft);padding:3px 8px;cursor:pointer;}
+  .qty button:hover{background:#00000010;color:var(--ink);}
+  .qty button:disabled{opacity:.3;cursor:default;background:none;}
+  .qty i{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--ink);padding:0 4px;min-width:22px;text-align:center;}
+  .mqty{margin-top:4px;}
+  .qhint{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:5px;line-height:1.4;}
+  /* cutout controls */
+  .photobox.cut{background:#EFEBE2;padding:6px;}
+  .photobox.cut img{object-fit:contain;max-height:260px;}
+  .phrow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:7px;flex-wrap:wrap;}
+  .cutlbl{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--soft);cursor:pointer;}
+  .cutlbl input{width:auto;margin:0;}
+  .cutnote{font-family:var(--mono);font-size:10.5px;color:#9A6A12;line-height:1.4;margin-top:5px;min-height:14px;}
+  /* a cut-out garment must sit ON the surface, not be cropped to fill a box */
+  .thumb img.cutimg,.oth img.cutimg,.pitph img.cutimg,.bph img.cutimg{object-fit:contain;}
+  .thumb img.cutimg{padding:8px;}
+  .bph img.cutimg{padding:2px;}
+  /* ---- build tab: the closet stack ----------------------------------------
+     One continuous column, no card chrome. Each row is scaled to roughly its
+     real-world proportion (--rh), the selected garment sits in a fixed centre
+     lane, and neighbours are scaled DOWN rather than dimmed so you can still
+     see what's coming as you scroll. */
+  .bstack{display:flex;flex-direction:column;gap:0;margin-top:16px;}
+  .brow{position:relative;transition:opacity .15s ease;}
+  .brow.off{opacity:.35;pointer-events:none;}
+  /* labels float over the row's empty top corners instead of consuming a line each —
+     that's the difference between five stacked widgets and one continuous column */
+  .brhead{position:absolute;top:0;left:0;right:0;z-index:2;pointer-events:none;
+    display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:0 3px;}
+  .brlabel{font-family:var(--mono);font-size:8.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--faint);flex:0 0 auto;opacity:.8;}
+  .brpick{font-size:11px;font-weight:600;color:var(--soft);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;}
+  .brpick.non{font-weight:400;color:var(--faint);opacity:.55;}
+  /* the centre lane — a quiet guide the selected pieces line up inside */
+  .blane{position:absolute;left:50%;transform:translateX(-50%);top:0;bottom:0;width:120px;
+    border-left:1px solid var(--line);border-right:1px solid var(--line);opacity:.5;pointer-events:none;z-index:0;}
+  .brscroll{display:flex;align-items:flex-end;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-behavior:smooth;
+    padding:0 calc(50% - 60px);height:var(--rh);position:relative;z-index:1;}
+  .brscroll::-webkit-scrollbar{display:none;}
+  .bitem{flex:0 0 120px;scroll-snap-align:center;padding:0;border:none;background:none;cursor:pointer;
+    height:100%;display:flex;align-items:flex-end;justify-content:center;
+    transform:scale(.62);transform-origin:bottom center;opacity:.85;
+    transition:transform .18s ease,opacity .18s ease;}
+  .bitem.on{transform:scale(1);opacity:1;}
+  .bph{width:100%;height:100%;display:flex;align-items:flex-end;justify-content:center;overflow:visible;background:none!important;}
+  /* garment sits ON the row baseline and fills its height — this is what makes a
+     cap read as small and a jacket as tall without any per-item fiddling */
+  .bph img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;}
+  .bitem.bnone{opacity:.4;}
+  .bitem.bnone.on{opacity:.75;}
+  .bitem.bnone .bnone-in{width:44px;height:44px;border:1px dashed var(--line);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:14px;background:none;}
+  .bswatch{width:74px;height:100%;border-radius:6px;border:1px solid #1b1a1722;}
+  .brempty{font-family:var(--mono);font-size:10.5px;color:var(--faint);padding:0 2px;height:var(--rh);
+    display:flex;align-items:center;justify-content:center;opacity:.7;}
+  .bfeed{margin-top:16px;padding:13px 14px;background:var(--card);border:1px solid var(--line);border-radius:8px;}
+  .bfrow{min-height:17px;}
+  .bfrow+.bfrow{margin-top:5px;}
+  .bbtns{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+  .bbtns .savebtn{flex:1 1 130px;}
+  /* metadata sheet — hidden until Save, so the stack owns the screen */
+  .bsheet{display:none;}
+  .bsheet.open{display:block;}
+  @media (prefers-reduced-motion:reduce){.rcard{transition:none;}.brscroll{scroll-behavior:auto;}.bitem{transition:none;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3.2c-1.5 0-2.6 1.1-2.6 2.5 0 1 .6 1.7 1.5 2.1L3.2 13c-.7.4-1.1 1-1.1 1.7 0 1 .8 1.6 1.8 1.6h16.2c1 0 1.8-.6 1.8-1.6 0-.7-.4-1.3-1.1-1.7l-7.7-5.2" stroke="#1B1A17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        <div class="word">rack</div>
+        <div class="sub">wishlist · wardrobe · brands</div>
+      </div>
+    </div>
+    <div class="hbtns">
+      <button class="ghost" id="captureBtn" title="Quick-capture from a shop page">Capture +</button>
+      <button class="ghost" id="sizesBtn" title="Your general sizes">Sizes</button>
+      <button class="ghost" id="importBtn" title="Load a backup file">Import &#8593;</button>
+      <button class="ghost" id="exportBtn" title="Download a backup file">Export &#8595;</button>
+      <input type="file" id="importFile" accept="application/json" style="display:none" />
+    </div>
+  </header>
+
+  <div class="tabs" id="tabs">
+    <button class="tab on" data-tab="wardrobe">Wardrobe <span class="n" id="cWardrobe">0</span></button>
+    <button class="tab" data-tab="build">Build</button>
+    <button class="tab" data-tab="outfits">Outfits <span class="n" id="cOutfits">0</span></button>
+    <button class="tab" data-tab="pieces">Pieces <span class="n" id="cPieces">0</span></button>
+    <button class="tab" data-tab="brands">Brands <span class="n" id="cBrands">0</span></button>
+    <button class="tab" data-tab="capsules">Capsules <span class="n" id="cCapsules">0</span></button>
+  </div>
+
+  <div class="controls" id="controls">
+    <div class="searchbox"><span>&#9906;</span><input id="search" placeholder="Search…" /></div>
+    <select id="sortSel" class="sortsel"></select>
+    <button class="add" id="addBtn">+ Add piece</button>
+  </div>
+
+  <div id="stats" class="stats"></div>
+  <div id="content"></div>
+</div>
+
+<div class="overlay" id="overlay"><div class="modal" id="modal"></div></div>
+
+<script>
+(function(){
+  "use strict";
+  // ---- photo storage (IndexedDB) + colour extraction (rack_2) ----
+  var photoCache={};
+  var _db=null;
+  function openDB(cb){
+    if(_db){cb(_db);return;}
+    if(typeof indexedDB==="undefined"){cb(null);return;}
+    try{
+      var rq=indexedDB.open("rack_media",1);
+      rq.onupgradeneeded=function(e){var db=e.target.result;if(!db.objectStoreNames.contains("photos"))db.createObjectStore("photos");};
+      rq.onsuccess=function(e){_db=e.target.result;cb(_db);};
+      rq.onerror=function(){cb(null);};
+    }catch(e){cb(null);}
+  }
+  function idbPut(id,data){openDB(function(db){if(!db)return;try{db.transaction("photos","readwrite").objectStore("photos").put(data,id);}catch(e){}});}
+  function idbDel(id){openDB(function(db){if(!db)return;try{db.transaction("photos","readwrite").objectStore("photos").delete(id);}catch(e){}});}
+  function idbClear(cb){openDB(function(db){if(!db){cb&&cb();return;}try{var t=db.transaction("photos","readwrite");t.objectStore("photos").clear();t.oncomplete=function(){cb&&cb();};t.onerror=function(){cb&&cb();};}catch(e){cb&&cb();}});}
+  function idbAll(cb){openDB(function(db){if(!db){cb({});return;}try{var out={},t=db.transaction("photos","readonly"),cr=t.objectStore("photos").openCursor();cr.onsuccess=function(e){var c=e.target.result;if(c){out[c.key]=c.value;c.continue();}else cb(out);};cr.onerror=function(){cb(out);};}catch(e){cb({});}});}
+  // Cutouts live under a separate IndexedDB key so the original is never destroyed —
+  // toggling `cutout` off must always be able to fall back to the untouched photo.
+  var CUT_SUFFIX="__cut";
+  function cutKey(id){return id+CUT_SUFFIX;}
+  function isCutKey(k){return k.slice(-CUT_SUFFIX.length)===CUT_SUFFIX;}
+  function rawPhotoOf(it){return (it&&photoCache[it.id])||(it&&it.image)||"";}
+  function photoOf(it){
+    if(!it)return "";
+    if(it.cutout!==false&&photoCache[cutKey(it.id)])return photoCache[cutKey(it.id)];
+    return rawPhotoOf(it);
+  }
+  function hasCutout(it){return !!(it&&photoCache[cutKey(it.id)]);}
+  // Five identical white shirts are one entry with a count, not five cards. Keeps the
+  // closet stack readable and means laundry tracking can later say "3 of 5 clean".
+  function qtyOf(it){var n=parseInt(it&&it.qty,10);return (isNaN(n)||n<1)?1:Math.min(99,n);}
+  function qtyHtml(id,q){
+    return '<span class="qty">'+
+      '<button data-action="qtyDown" data-id="'+id+'" title="One fewer"'+(q<=1?' disabled':'')+'>&minus;</button>'+
+      '<i>'+q+'</i>'+
+      '<button data-action="qtyUp" data-id="'+id+'" title="One more">+</button></span>';
+  }
+  function showingCut(it){return !!(it&&it.cutout!==false&&photoCache[cutKey(it.id)]);}
+  function cutCls(it){return showingCut(it)?' class="cutimg"':'';}
+  // a cut-out garment floats on paper; only a background-carrying photo gets the swatch behind it
+  function tileBg(it){return showingCut(it)?"#EFEBE2":(it.color||"#EFEBE2");}
+
+  // ---- background removal ----------------------------------------------------
+  // Edge-seeded flood fill against a sampled background reference, with a soft alpha
+  // ramp instead of a binary mask (binary gives jagged, aliased edges).
+  // Flood-fill reachability is what stops a white logo *inside* a dark garment from
+  // being punched out — it isn't connected to the border, so it's never visited.
+  var CUT_MAX=760, CUT_TOL_LOW=20, CUT_TOL_HIGH=52, CUT_PAD=6, CUT_BG_MAXDEV=30;
+  function _medianOf(arr){var a=arr.slice().sort(function(x,y){return x-y;});return a[Math.floor(a.length/2)]||0;}
+  function _sampleBg(px,w,h){
+    // median of a 2px border ring — median rather than mean so one dark garment
+    // bleeding to the edge can't drag the reference off.
+    var rs=[],gs=[],bs=[];
+    function take(x,y){var i=(y*w+x)*4;if(px[i+3]<128)return;rs.push(px[i]);gs.push(px[i+1]);bs.push(px[i+2]);}
+    for(var x=0;x<w;x++){take(x,0);take(x,1);take(x,h-1);take(x,h-2);}
+    for(var y=0;y<h;y++){take(0,y);take(1,y);take(w-1,y);take(w-2,y);}
+    var mr=_medianOf(rs),mg=_medianOf(gs),mb=_medianOf(bs),tot=0,n=rs.length;
+    // How uniform is the border? A cluttered room background scatters wildly around its
+    // own median, and flood-filling against a meaningless reference eats random holes in
+    // the photo. Measuring this up front is what separates "shop photo" from "my bedroom".
+    for(var k=0;k<n;k++){
+      var dr=rs[k]-mr,dg=gs[k]-mg,db=bs[k]-mb;
+      tot+=Math.sqrt(dr*dr+dg*dg+db*db);
+    }
+    return [mr,mg,mb,n?tot/n:999];
+  }
+  function makeCutout(srcUrl,cb){
+    var img=new Image();
+    // remote images only work if the host sends CORS headers; if not, getImageData
+    // throws on the tainted canvas and we bail cleanly to "no cutout".
+    if(/^https?:/i.test(srcUrl))img.crossOrigin="anonymous";
+    img.onload=function(){
+      try{
+        var w=img.naturalWidth||img.width,h=img.naturalHeight||img.height;
+        if(!w||!h){cb(null);return;}
+        var s=Math.min(1,CUT_MAX/Math.max(w,h));
+        var cw=Math.max(1,Math.round(w*s)),ch=Math.max(1,Math.round(h*s));
+        var cv=document.createElement("canvas");cv.width=cw;cv.height=ch;
+        var ctx=cv.getContext("2d");ctx.drawImage(img,0,0,cw,ch);
+        var idata=ctx.getImageData(0,0,cw,ch),px=idata.data;
+        var bg=_sampleBg(px,cw,ch),br=bg[0],bgg=bg[1],bb=bg[2];
+        if(bg[3]>CUT_BG_MAXDEV){cb(null);return;}   // background isn't a background
+        var n=cw*ch,seen=new Uint8Array(n),stack=new Int32Array(n),sp=0;
+        function dist(i){var dr=px[i*4]-br,dg=px[i*4+1]-bgg,db=px[i*4+2]-bb;return Math.sqrt(dr*dr+dg*dg+db*db);}
+        function push(i){if(!seen[i]&&dist(i)<CUT_TOL_HIGH){seen[i]=1;stack[sp++]=i;}}
+        for(var x=0;x<cw;x++){push(x);push((ch-1)*cw+x);}
+        for(var y=0;y<ch;y++){push(y*cw);push(y*cw+cw-1);}
+        while(sp>0){
+          var i=stack[--sp],iy=(i/cw)|0,ix=i-iy*cw;
+          if(ix>0)push(i-1);
+          if(ix<cw-1)push(i+1);
+          if(iy>0)push(i-cw);
+          if(iy<ch-1)push(i+cw);
+        }
+        var span=CUT_TOL_HIGH-CUT_TOL_LOW,kept=0;
+        var minX=cw,minY=ch,maxX=-1,maxY=-1;
+        for(var j=0;j<n;j++){
+          if(seen[j]){
+            var d=dist(j);
+            var a=d<=CUT_TOL_LOW?0:(d>=CUT_TOL_HIGH?255:Math.round(((d-CUT_TOL_LOW)/span)*255));
+            px[j*4+3]=Math.min(px[j*4+3],a);
+          }
+          if(px[j*4+3]>24){
+            kept++;
+            var yy=(j/cw)|0,xx=j-yy*cw;
+            if(xx<minX)minX=xx;if(xx>maxX)maxX=xx;
+            if(yy<minY)minY=yy;if(yy>maxY)maxY=yy;
+          }
+        }
+        // Sanity gates. Eating the garment (white-on-white) or removing almost nothing
+        // are both worse than leaving the photo alone.
+        var ratio=kept/n;
+        if(ratio<0.04||ratio>0.97||maxX<0){cb(null);return;}
+        ctx.putImageData(idata,0,0);
+        // Crop to the garment's own outline. This is what lets the Build tab size and
+        // align pieces to their real silhouette rather than to arbitrary photo framing.
+        var x0=Math.max(0,minX-CUT_PAD),y0=Math.max(0,minY-CUT_PAD);
+        var x1=Math.min(cw-1,maxX+CUT_PAD),y1=Math.min(ch-1,maxY+CUT_PAD);
+        var ow=x1-x0+1,oh=y1-y0+1;
+        var oc=document.createElement("canvas");oc.width=ow;oc.height=oh;
+        oc.getContext("2d").drawImage(cv,x0,y0,ow,oh,0,0,ow,oh);
+        var out="";
+        try{out=oc.toDataURL("image/png");}catch(e){cb(null);return;}
+        cb(out&&out.length>64?out:null);
+      }catch(e){cb(null);}   // tainted canvas, OOM, anything — fail soft
+    };
+    img.onerror=function(){cb(null);};
+    img.src=srcUrl;
+  }
+
+  function _rgb(hex){hex=String(hex||"").replace("#","");return [parseInt(hex.slice(0,2),16),parseInt(hex.slice(2,4),16),parseInt(hex.slice(4,6),16)];}
+  var _PAL=null;
+  function _pal(){if(_PAL)return _PAL;_PAL=[];PALETTE.forEach(function(f){f.list.forEach(function(c){_PAL.push({hex:c[1],rgb:_rgb(c[1])});});});return _PAL;}
+  function nearestSwatch(c){var P=_pal(),best="",bd=1e9;for(var i=0;i<P.length;i++){var p=P[i].rgb,dr=c[0]-p[0],dg=c[1]-p[1],db=c[2]-p[2],d=dr*dr+dg*dg+db*db;if(d<bd){bd=d;best=P[i].hex;}}return best;}
+  function dominantColors(px){var b={},step=16;for(var i=0;i<px.length;i+=step){if(px[i+3]<200)continue;var r=px[i],g=px[i+1],bl=px[i+2],key=((r>>4)<<8)|((g>>4)<<4)|(bl>>4);if(!b[key])b[key]={r:0,g:0,b:0,n:0};var bk=b[key];bk.r+=r;bk.g+=g;bk.b+=bl;bk.n++;}var arr=[];for(var k in b){var bk=b[k];arr.push({rgb:[Math.round(bk.r/bk.n),Math.round(bk.g/bk.n),Math.round(bk.b/bk.n)],n:bk.n});}arr.sort(function(a,b){return b.n-a.n;});return arr;}
+  function _rgbDist(h1,h2){var a=_rgb(h1),b=_rgb(h2),dr=a[0]-b[0],dg=a[1]-b[1],db=a[2]-b[2];return Math.sqrt(dr*dr+dg*dg+db*db);}
+  function _isNeutralHex(hex){var c=hx2hsl(hex);return !c||c.s<0.20;}
+  function _isChromaticHex(hex){var c=hx2hsl(hex);return !!c&&c.s>=0.30&&c.l>0.12&&c.l<0.92;}
+  function extractPalette(px){
+    var doms=dominantColors(px);
+    if(!doms.length)return{color:"",accents:[]};
+    var w={},total=0;
+    doms.slice(0,40).forEach(function(d){var s=nearestSwatch(d.rgb);w[s]=(w[s]||0)+d.n;total+=d.n;});
+    var ranked=Object.keys(w).sort(function(a,b){return w[b]-w[a];});
+    var primary=ranked[0]||"";
+    var pNeutral=_isNeutralHex(primary), accents=[];
+    for(var i=1;i<ranked.length&&accents.length<2;i++){
+      var hex=ranked[i], share=total?w[hex]/total:0;
+      if(share<0.15)break;                                  // ranked desc: once too small, rest are too
+      if(hex===primary||_rgbDist(hex,primary)<90)continue;  // not a real second colour
+      if(pNeutral&&!_isChromaticHex(hex))continue;          // neutral garment: reject grey/shadow accents
+      var dup=false;for(var j=0;j<accents.length;j++)if(_rgbDist(hex,accents[j])<70)dup=true;
+      if(dup)continue;
+      accents.push(hex);
+    }
+    return{color:primary,accents:accents};
+  }
+  function processPhotoSrc(src,cb){
+      var img=new Image();
+      if(/^https?:/i.test(src))img.crossOrigin="anonymous";
+      img.onload=function(){
+        var mx=800,w=img.width,h=img.height,s=Math.min(1,mx/Math.max(w,h));
+        var cw=Math.max(1,Math.round(w*s)),ch=Math.max(1,Math.round(h*s));
+        var cv=document.createElement("canvas");cv.width=cw;cv.height=ch;
+        var ctx=cv.getContext("2d");ctx.drawImage(img,0,0,cw,ch);
+        var durl="";try{durl=cv.toDataURL("image/jpeg",0.82);}catch(e){durl="";}
+        var pal={color:"",accents:[]};
+        try{var x0=Math.floor(cw*0.15),y0=Math.floor(ch*0.15),x1=Math.ceil(cw*0.85),y1=Math.ceil(ch*0.85);var id=ctx.getImageData(x0,y0,Math.max(1,x1-x0),Math.max(1,y1-y0));pal=extractPalette(id.data);}catch(e){}
+        cb(durl,pal);
+      };
+      img.onerror=function(){cb("",null);};
+      img.src=src;
+  }
+  function processPhotoFile(file,cb){
+    var fr=new FileReader();
+    fr.onload=function(){processPhotoSrc(fr.result,cb);};
+    fr.onerror=function(){cb("",null);};
+    fr.readAsDataURL(file);
+  }
+
+  var LS_ITEMS="rack_items_v1", LS_BRANDS="rack_brands_v1", LS_OUTFITS="rack_outfits_v1", LS_CAPSULES="rack_capsules_v1", LS_SIZES="rack_sizes_v1";
+
+  // ---- colour palette (real hex so matching maths works) ----
+  var PALETTE=[
+    {f:"neutral",list:[["black","#1B1A17"],["charcoal","#3A3A3A"],["grey","#8A8A88"],["silver","#C9C7C1"],["white","#F5F3EC"],["cream","#EDE6D6"],["beige","#D8C3A5"],["tan","#B79B76"],["brown","#6E4E33"],["navy","#24304A"]]},
+    {f:"red / pink",list:[["burgundy","#6E2233"],["red","#B23A3A"],["rust","#A6532E"],["pink","#D98CA6"],["magenta","#C7477E"]]},
+    {f:"warm",list:[["orange","#D0812F"],["mustard","#C79A2E"],["yellow","#E3C64B"]]},
+    {f:"green",list:[["olive","#6E7A3A"],["forest","#375A3C"],["sage","#9DAE8B"],["teal","#2E7D77"]]},
+    {f:"blue / purple",list:[["sky","#5A83B0"],["blue","#2F5FA6"],["cobalt","#274690"],["purple","#5E4B8A"],["lavender","#A99BC4"]]}
+  ];
+  // clash tuning — only loud, saturated colours in the discord hue-zone trip a flag
+  var CLASH_MIN=45, CLASH_MAX=100, LOUD_S=0.5, NEU_S=0.15;
+
+  function hx2hsl(hex){
+    hex=String(hex||"").replace("#","");
+    if(hex.length===3)hex=hex.split("").map(function(c){return c+c;}).join("");
+    if(hex.length!==6)return null;
+    var r=parseInt(hex.slice(0,2),16)/255,g=parseInt(hex.slice(2,4),16)/255,b=parseInt(hex.slice(4,6),16)/255;
+    if(isNaN(r)||isNaN(g)||isNaN(b))return null;
+    var mx=Math.max(r,g,b),mn=Math.min(r,g,b),l=(mx+mn)/2,s=0,h=0,d=mx-mn;
+    if(d){
+      s=d/(1-Math.abs(2*l-1));
+      if(mx===r)h=((g-b)/d)%6; else if(mx===g)h=(b-r)/d+2; else h=(r-g)/d+4;
+      h*=60; if(h<0)h+=360;
+    }
+    return {h:h,s:s,l:l};
+  }
+  function isNeutral(c){return !c||c.s<NEU_S||c.l<=0.12||c.l>=0.90;}
+  function isLoud(c){return !!c&&!isNeutral(c)&&c.s>=LOUD_S;}
+  function hueDist(a,b){var d=Math.abs(a-b)%360;return d>180?360-d:d;}
+  function clashPairs(hexes){
+    var loud=[];
+    hexes.forEach(function(h){var c=hx2hsl(h);if(isLoud(c))loud.push({hex:h,c:c});});
+    var out=[];
+    for(var i=0;i<loud.length;i++)for(var j=i+1;j<loud.length;j++){
+      var d=hueDist(loud[i].c.h,loud[j].c.h);
+      if(d>=CLASH_MIN&&d<=CLASH_MAX)out.push([loud[i].hex,loud[j].hex]);
+    }
+    return out;
+  }
+  function dot(hex){return '<span class="cdot" style="background:'+esc(hex)+'"></span>';}
+  function clashHtml(primaries){
+    if(primaries.length<2)return '<span class="cnote">Add colours to pieces to check matching</span>';
+    var pairs=clashPairs(primaries);
+    if(!pairs.length)return '<span class="cok">'+dot(primaries[0])+' Colours sit well together</span>';
+    var p=pairs[0], extra=pairs.length>1?(" +"+(pairs.length-1)+" more"):"";
+    return '<span class="cwarn">&#9650; Possible clash '+dot(p[0])+dot(p[1])+esc(extra)+'</span>';
+  }
+  var HEX2FAM={};
+  PALETTE.forEach(function(fam){fam.list.forEach(function(c){HEX2FAM[c[1]]=fam.f;});});
+  var CATEGORIES=[
+    ["hat","Hat / headwear","head"],
+    ["hoodie","Hoodie","top"],["sweater","Sweater","top"],["sweatercas","Sweater (casual)","top"],
+    ["tshirt","T-shirt","top"],["shirt","Shirt","top"],["dressshirt","Dress shirt","top"],
+    ["shorts","Shorts","bottom"],["jeans","Jeans","bottom"],["chinos","Chinos","bottom"],["suitbottom","Suit bottom","bottom"],
+    ["jacket","Jacket","outer"],["suittop","Suit top","outer"],
+    ["shoes","Shoes","shoes"],
+    ["full","Dress / one-piece","full"],
+    ["acc","Accessory","none"]
+  ];
+  var CAT_PLURAL_OVERRIDE={hat:"hats",hoodie:"hoodies",sweater:"sweaters",sweatercas:"casual sweaters",tshirt:"t-shirts",shirt:"shirts",dressshirt:"dress shirts",shorts:"shorts",jeans:"jeans",chinos:"chinos",suitbottom:"suit bottoms",jacket:"jackets",suittop:"suit tops",shoes:"shoes",full:"one-pieces",acc:"accessories"};
+  var CAT_SINGULAR={hat:"hat",hoodie:"hoodie",sweater:"sweater",sweatercas:"casual sweater",tshirt:"t-shirt",
+    shirt:"shirt",dressshirt:"dress shirt",shorts:"pair of shorts",jeans:"pair of jeans",chinos:"pair of chinos",
+    suitbottom:"suit bottom",jacket:"jacket",suittop:"suit top",shoes:"pair of shoes",full:"one-piece",acc:"accessory"};
+  var SLOT_LABEL={head:"Headwear",top:"Tops",bottom:"Bottoms",outer:"Outerwear",shoes:"Shoes",full:"Dress / one-piece",none:"Other"};
+  var CAT_LABEL={},CAT_PLURAL={},CAT_SLOT={};
+  CATEGORIES.forEach(function(c){CAT_LABEL[c[0]]=c[1];CAT_SLOT[c[0]]=c[2];CAT_PLURAL[c[0]]=CAT_PLURAL_OVERRIDE[c[0]];});
+  var OCCASIONS=[["dressy","Dressy"],["business","Business"],["casual","Casual"],["sport","Sport"]];
+  var OCC_LABEL={};OCCASIONS.forEach(function(o){OCC_LABEL[o[0]]=o[1];});
+  // Old scheme used generic top/bottom/outer keys that no longer exist as pickable categories.
+  // shoes/full/acc are unchanged. A generic "top" could've been a hoodie or a shirt — no safe
+  // guess — so these get cleared (not silently mis-tagged) and flagged once for a manual re-check.
+  var LEGACY_CATS={top:1,bottom:1,outer:1};
+  function migrateCategories(items){
+    var n=0;
+    items.forEach(function(it){
+      if(it.category&&LEGACY_CATS[it.category]){it._legacyCategory=it.category;it.category="";n++;}
+    });
+    return n;
+  }
+  function coverage(arr){
+    var by={};arr.forEach(function(i){if(i.category)by[i.category]=(by[i.category]||0)+qtyOf(i);});
+    var parts=[];CATEGORIES.forEach(function(c){
+      var n=by[c[0]];if(!n)return;
+      parts.push(n+" "+(n===1?(CAT_SINGULAR[c[0]]||CAT_PLURAL[c[0]]):CAT_PLURAL[c[0]]));
+    });
+    return parts.join(", ");
+  }  function itemFamilies(it){
+    var fs={},arr=[];if(it.color)arr.push(it.color);(it.accents||[]).forEach(function(x){arr.push(x);});
+    arr.forEach(function(h){var f=HEX2FAM[h];if(f)fs[f]=1;});
+    return fs;
+  }
+  function priceNum(s){
+    var m=String(s==null?"":s).match(/[0-9][0-9.,]*/);                    // first number token only
+    if(!m)return null;
+    var t=m[0], lc=t.lastIndexOf(","), ld=t.lastIndexOf(".");
+    if(lc>-1&&ld>-1){                                                     // both present: last one is the decimal
+      if(lc>ld)t=t.replace(/\./g,"").replace(",",".");                   // 1.234,56 -> 1234.56  (EU)
+      else t=t.replace(/,/g,"");                                         // 1,299.00 -> 1299.00  (US)
+    }else if(lc>-1){                                                      // comma only: 3 trailing digits => thousands, else decimal
+      var p=t.split(",");
+      if(p.length>2||(p.length===2&&p[1].length===3))t=t.replace(/,/g,""); // 1,299 -> 1299
+      else t=t.replace(",",".");                                         // 12,50 -> 12.50
+    }else if(ld>-1){                                                      // dot only: same heuristic (no 3-decimal retail prices)
+      var pd=t.split(".");
+      if(pd.length>2||(pd.length===2&&pd[1].length===3))t=t.replace(/\./g,""); // 2.999 -> 2999
+    }
+    var n=parseFloat(t);return isNaN(n)?null:n;
+  }
+  function isOnSale(it){var w=priceNum(it.wasPrice),p=priceNum(it.price);return w!=null&&p!=null&&w>p;}
+  function money(n){return "€"+(Math.round(n*100)/100).toLocaleString("en-US");}
+  function statsHtml(){
+    var t=state.tab;
+    function sum(arr){var s=0;arr.forEach(function(i){var p=priceNum(i.price);if(p)s+=p*qtyOf(i);});return s;}
+    function units(arr){var n=0;arr.forEach(function(i){n+=qtyOf(i);});return n;}
+    if(t==="pieces"){var w=state.items.filter(function(i){return i.status!=="bought";});if(!w.length)return "";
+      var sale=w.filter(isOnSale).length,wu=units(w);
+      return w.length+" piece"+(w.length===1?"":"s")+(wu!==w.length?" · "+wu+" items":"")+
+        " · "+money(sum(w))+" total"+(sale?" · "+sale+" on sale":"");}
+    if(t==="wardrobe"){var b=state.items.filter(function(i){return i.status==="bought";});if(!b.length)return "";
+      var cov=coverage(b),bu=units(b);
+      return b.length+" piece"+(b.length===1?"":"s")+(bu!==b.length?" · "+bu+" items":"")+
+        " · "+money(sum(b))+" spent"+(cov?" · "+cov:"");}
+    if(t==="outfits"){if(!state.outfits.length)return "";
+      var cl=state.outfits.filter(function(o){var pr=outfitPrimaries(o);return clashPairs(pr).length&&o.clashOk!==clashSig(o);}).length;
+      return state.outfits.length+" outfit"+(state.outfits.length===1?"":"s")+(cl?" · "+cl+" flagged":"");}
+    if(t==="brands"){if(!state.brands.length)return "";
+      var by={};state.brands.forEach(function(b){by[b.status]=(by[b.status]||0)+1;});
+      var parts=[];for(var k in BRAND_STATUS)if(by[k])parts.push(by[k]+" "+BRAND_STATUS[k].label.toLowerCase());
+      return state.brands.length+" brand"+(state.brands.length===1?"":"s")+(parts.length?" · "+parts.join(", "):"");}
+    if(t==="capsules"){if(!state.capsules.length)return "";
+      return state.capsules.length+" capsule"+(state.capsules.length===1?"":"s");}
+    return "";
+  }
+
+  var PIECE_STATUS={
+    want:{label:"Buy soon",color:"#7A2E2E",bg:"#7A2E2E16"},
+    later:{label:"For later",color:"#6B675E",bg:"#6B675E16"},
+    bought:{label:"Owned",color:"#46663F",bg:"#46663F1A"}
+  };
+  var BRAND_STATUS={
+    cool:{label:"Cool",color:"#1B1A17",bg:"#1B1A1712"},
+    deal:{label:"Deal now",color:"#9A6A12",bg:"#9A6A1222"},
+    investigate:{label:"Investigate",color:"#3A5A78",bg:"#3A5A781C"},
+    approved:{label:"Approved",color:"#46663F",bg:"#46663F1C"},
+    avoid:{label:"Avoid",color:"#9A3B3B",bg:"#9A3B3B16"}
+  };
+  var state={tab:"wardrobe",search:"",statusF:"all",tagF:null,colorF:null,catF:null,occF:null,saleOnly:false,sort:"new",items:[],brands:[],outfits:[],capsules:[],sizes:{}};
+  var modalState=null;
+  // Build tab lives outside `state` persistence — it's a scratch pad, not saved data.
+  // Third value is row height in px — roughly real-world proportion, compressed.
+  // Trousers are the tallest thing you wear, a cap the shortest; keeping that ratio
+  // is what makes the column read as a body instead of a list of thumbnails.
+  var BUILD_ROWS=[["head","Headwear",72],["outer","Outerwear",148],["top","Top",128],["bottom","Bottom",166],["shoes","Shoes",76]];
+  var build=null;
+  // extraIds: pieces in an edited outfit that no slot can hold (accessories, uncategorised,
+  // or a second item competing for one slot). Carried through save untouched so editing
+  // an outfit in the stack never silently drops pieces it can't display.
+  function freshBuild(){return {editId:null,picks:{head:"",outer:"",top:"",bottom:"",shoes:""},extraIds:[],name:"",occasion:"",tags:[],notes:""};}
+
+  function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7);}
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+
+  function load(){
+    try{state.items=JSON.parse(localStorage.getItem(LS_ITEMS))||[];}catch(e){state.items=[];}
+    try{state.brands=JSON.parse(localStorage.getItem(LS_BRANDS))||[];}catch(e){state.brands=[];}
+    try{state.outfits=JSON.parse(localStorage.getItem(LS_OUTFITS))||[];}catch(e){state.outfits=[];}
+    try{state.capsules=JSON.parse(localStorage.getItem(LS_CAPSULES))||[];}catch(e){state.capsules=[];}
+    try{state.sizes=JSON.parse(localStorage.getItem(LS_SIZES))||{};}catch(e){state.sizes={};}
+    var migrated=migrateCategories(state.items);
+    if(migrated){
+      save();
+      alert(migrated+" piece"+(migrated===1?"":"s")+" used the old category system and got cleared to “none” — categories are more specific now, so nothing safe to guess. Worth a quick re-tag when you have a sec; nothing else was touched.");
+    }
+  }
+  function save(){
+    try{
+      localStorage.setItem(LS_ITEMS,JSON.stringify(state.items));
+      localStorage.setItem(LS_BRANDS,JSON.stringify(state.brands));
+      localStorage.setItem(LS_OUTFITS,JSON.stringify(state.outfits));
+      localStorage.setItem(LS_CAPSULES,JSON.stringify(state.capsules));
+      localStorage.setItem(LS_SIZES,JSON.stringify(state.sizes));
+    }catch(e){alert("Could not save to this browser. Use Export to keep a backup.");}
+  }
+
+  function badge(meta){
+    return '<span class="badge" style="color:'+meta.color+';background:'+meta.bg+';border-color:'+meta.color+'33;">'+esc(meta.label)+'</span>';
+  }
+  function hanger(size){return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="none"><path d="M12 3.2c-1.5 0-2.6 1.1-2.6 2.5 0 1 .6 1.7 1.5 2.1L3.2 13c-.7.4-1.1 1-1.1 1.7 0 1 .8 1.6 1.8 1.6h16.2c1 0 1.8-.6 1.8-1.6 0-.7-.4-1.3-1.1-1.7l-7.7-5.2" stroke="#6B675E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';}
+
+  function pieceCardHtml(it,inWardrobe){
+    var meta=PIECE_STATUS[it.status]||PIECE_STATUS.later;
+    var h='<div class="rcard"><div class="thumb">';
+    var onSale=isOnSale(it);
+    if(onSale){h+='<span class="saletag">Sale</span>';}
+    var psrc=photoOf(it);
+    if(psrc){h+='<img src="'+esc(psrc)+'" alt=""'+cutCls(it)+' onerror="this.style.display=\'none\'"/>';}
+    else{h+='<div class="ph">'+hanger(34)+'</div>';}
+    if(it.price){h+='<span class="price">'+esc(it.price)+(onSale?' <s>'+esc(it.wasPrice)+'</s>':'')+'</span>';}
+    h+='</div><div class="body">';
+    h+='<div class="toprow"><div style="min-width:0"><div class="name">'+esc(it.name)+'</div>'+(it.brand?'<div class="meta">'+esc(it.brand)+'</div>':'')+'</div>';
+    h+='<button class="editb" data-action="edit" data-id="'+it.id+'" title="Edit">&#9998;</button></div>';
+    var cols=[]; if(it.color)cols.push(it.color); (it.accents||[]).forEach(function(x){if(cols.indexOf(x)<0)cols.push(x);});
+    var q=qtyOf(it);
+    if(it.category||it.occasion||cols.length||q>1){
+      h+='<div class="metarow">';
+      if(q>1){h+='<span class="cat">&times;'+q+'</span>';}
+      if(it.category&&CAT_LABEL[it.category]){h+='<span class="cat">'+esc(CAT_LABEL[it.category])+'</span>';}
+      if(it.occasion&&OCC_LABEL[it.occasion]){h+='<span class="cat">'+esc(OCC_LABEL[it.occasion])+'</span>';}
+      if(cols.length){h+='<div class="cdots">'+cols.map(dot).join("")+'</div>';}
+      h+='</div>';
+    }
+    if(it.tags&&it.tags.length){h+='<div class="tags">'+it.tags.map(function(t){return '<span class="ttag">'+esc(t)+'</span>';}).join("")+'</div>';}
+    if(it.notes){h+='<div class="notes">'+esc(it.notes)+'</div>';}
+    h+='<div class="foot"><div class="footrow">';
+    if(inWardrobe){h+=badge(PIECE_STATUS.bought);}
+    else{h+='<button class="badgebtn" data-action="toggle" data-id="'+it.id+'" title="Toggle: for later / buy soon">'+badge(meta)+'</button>';}
+    if(it.url){h+='<a class="openl" href="'+esc(it.url)+'" target="_blank" rel="noreferrer">Open &#8599;</a>';}
+    h+='</div>';
+    h+='<div class="footrow">'+qtyHtml(it.id,q)+(it.url?'':'<span></span>')+'</div>';
+    if(inWardrobe){h+='<button class="moveb" data-action="relist" data-id="'+it.id+'">&#8617; Move to wishlist</button>';}
+    else{h+='<button class="moveb buy" data-action="bought" data-id="'+it.id+'">&#10003; Mark as bought</button>';}
+    h+='</div></div></div>';
+    return h;
+  }
+  function brandCardHtml(b){
+    var meta=BRAND_STATUS[b.status]||BRAND_STATUS.cool;
+    var h='<div class="rcard" style="padding:13px 14px;gap:8px">';
+    h+='<div class="toprow"><div style="min-width:0"><div class="bname">'+esc(b.name)+'</div></div>';
+    h+='<button class="editb" data-action="edit" data-id="'+b.id+'" title="Edit">&#9998;</button></div>';
+    h+=badge(meta);
+    if(b.tags&&b.tags.length){h+='<div class="tags">'+b.tags.map(function(t){return '<span class="ttag">'+esc(t)+'</span>';}).join("")+'</div>';}
+    if(b.notes){h+='<div class="notes" style="font-size:12.5px;line-height:1.45">'+esc(b.notes)+'</div>';}
+    if(b.url){h+='<a class="openl" href="'+esc(b.url)+'" target="_blank" rel="noreferrer" style="margin-top:2px">Visit &#8599;</a>';}
+    h+='</div>';
+    return h;
+  }
+  function capsuleCardHtml(c){
+    var pieceCount=state.items.filter(function(i){return (i.tags||[]).indexOf(c.tag)>-1;}).length;
+    var outfitCount=state.outfits.filter(function(o){return (o.tags||[]).indexOf(c.tag)>-1;}).length;
+    var h='<div class="rcard" style="padding:13px 14px;gap:8px">';
+    h+='<div class="toprow"><div style="min-width:0"><div class="bname">'+esc(c.name)+'</div>';
+    h+='<div class="meta">tag: '+esc(c.tag)+'</div></div>';
+    h+='<button class="editb" data-action="edit" data-id="'+c.id+'" title="Edit">&#9998;</button></div>';
+    h+='<div class="meta">'+pieceCount+' piece'+(pieceCount===1?"":"s")+' · '+outfitCount+' outfit'+(outfitCount===1?"":"s")+' tagged “'+esc(c.tag)+'”</div>';
+    if(c.notes){h+='<div class="notes" style="font-size:12.5px;line-height:1.45">'+esc(c.notes)+'</div>';}
+    h+='<div class="foot"><div class="footrow" style="gap:6px">';
+    h+='<button class="moveb" data-action="viewCapsule" data-id="'+c.id+'" data-val="wardrobe" style="width:auto;flex:1">Pieces &#8599;</button>';
+    h+='<button class="moveb" data-action="viewCapsule" data-id="'+c.id+'" data-val="outfits" style="width:auto;flex:1">Outfits &#8599;</button>';
+    h+='</div></div>';
+    h+='</div>';
+    return h;
+  }
+
+  function findOutfit(id){for(var i=0;i<state.outfits.length;i++)if(state.outfits[i].id===id)return state.outfits[i];return null;}
+  function findCapsule(id){for(var i=0;i<state.capsules.length;i++)if(state.capsules[i].id===id)return state.capsules[i];return null;}
+  function outfitPieces(o){return (o.itemIds||[]).map(function(id){return findItem(id);});}
+  function outfitPrimaries(o){return outfitPieces(o).filter(function(it){return it&&it.status==="bought"&&it.color;}).map(function(it){return it.color;});}
+  function clashSig(o){return outfitPrimaries(o).slice().sort().join("|");}
+  function outfitGaps(live){
+    if(live.length<2)return [];
+    var slots={},known=0;
+    live.forEach(function(it){if(it.category){var sl=CAT_SLOT[it.category];if(sl){slots[sl]=1;known++;}}});
+    if(!known)return [];
+    var g=[];
+    if(!(slots.top||slots.full))g.push("top");
+    if(!(slots.bottom||slots.full))g.push("bottom");
+    if(!slots.shoes)g.push("shoes");
+    return g;
+  }
+  function outfitIssues(o){
+    var missing=0,moved=0;
+    (o.itemIds||[]).forEach(function(id){var it=findItem(id);if(!it)missing++;else if(it.status!=="bought")moved++;});
+    return {missing:missing,moved:moved};
+  }
+  function outfitCardHtml(o){
+    var live=outfitPieces(o).filter(function(it){return it&&it.status==="bought";});
+    var primaries=outfitPrimaries(o);
+    var pairs=clashPairs(primaries);
+    var iss=outfitIssues(o);
+    var h='<div class="rcard ocard"><div class="ostrip">';
+    if(live.length){
+      live.slice(0,4).forEach(function(it){
+        var oimg=photoOf(it);
+        if(oimg){h+='<div class="oth" style="background:'+esc(tileBg(it))+'"><img src="'+esc(oimg)+'" alt=""'+cutCls(it)+' onerror="this.style.display=\'none\'"/></div>';}
+        else{h+='<div class="oth ophc">'+(it.color?'<span class="obig" style="background:'+esc(it.color)+'"></span>':hanger(24))+'</div>';}
+      });
+      if(live.length>4){h+='<div class="oth omore">+'+(live.length-4)+'</div>';}
+    }else{h+='<div class="oempty">no wardrobe pieces</div>';}
+    h+='</div><div class="body" style="gap:6px">';
+    h+='<div class="toprow"><div style="min-width:0"><div class="name">'+esc(o.name||"Untitled outfit")+'</div>';
+    h+='<div class="meta">'+live.length+' piece'+(live.length===1?"":"s")+'</div></div>';
+    h+='<button class="editb" data-action="editOutfit" data-id="'+o.id+'" title="Edit">&#9998;</button></div>';
+    if(o.occasion&&OCC_LABEL[o.occasion]){h+='<div class="metarow"><span class="cat">'+esc(OCC_LABEL[o.occasion])+'</span></div>';}
+    if(o.tags&&o.tags.length){h+='<div class="tags">'+o.tags.map(function(t){return '<span class="ttag">'+esc(t)+'</span>';}).join("")+'</div>';}
+    if(o.notes){h+='<div class="notes">'+esc(o.notes)+'</div>';}
+    h+='<div class="foot">';
+    if(!pairs.length){
+      h+='<div class="footrow">'+clashHtml(primaries)+'</div>';
+    }else if(o.clashOk===clashSig(o)){
+      h+='<div class="footrow"><span class="cnote">clash okayed</span><button class="linkb" data-action="undoClash" data-id="'+o.id+'">recheck</button></div>';
+    }else{
+      h+='<div class="footrow">'+clashHtml(primaries)+'</div>';
+      h+='<button class="moveb" data-action="dismissClash" data-id="'+o.id+'">Looks fine to me</button>';
+    }
+    if(iss.missing||iss.moved){
+      var bits=[];if(iss.missing)bits.push(iss.missing+" deleted");if(iss.moved)bits.push(iss.moved+" back in wishlist");
+      h+='<div class="cnote" style="margin-top:4px">&#9888; '+bits.join(", ")+'</div>';
+    }
+    var gaps=outfitGaps(live);
+    if(gaps.length){h+='<div class="gapnote">&#9873; missing: '+gaps.join(", ")+'</div>';}
+    h+='</div></div></div>';
+    return h;
+  }
+
+  function baseData(){
+    if(state.tab==="brands")return state.brands;
+    if(state.tab==="capsules")return state.capsules;
+    if(state.tab==="outfits")return state.outfits;
+    if(state.tab==="wardrobe")return state.items.filter(function(i){return i.status==="bought";});
+    return state.items.filter(function(i){return i.status!=="bought";});
+  }
+  function allTags(data){
+    var s={};data.forEach(function(d){(d.tags||[]).forEach(function(t){s[t]=1;});});
+    return Object.keys(s).sort();
+  }
+  function visible(){
+    var data=baseData(),q=state.search.trim().toLowerCase();
+    var res=data.filter(function(d){return state.statusF==="all"||d.status===state.statusF;})
+      .filter(function(d){return !state.tagF||(d.tags||[]).indexOf(state.tagF)>-1;})
+      .filter(function(d){return !state.colorF||!!itemFamilies(d)[state.colorF];})
+      .filter(function(d){return !state.catF||d.category===state.catF;})
+      .filter(function(d){return !state.occF||d.occasion===state.occF;})
+      .filter(function(d){return !state.saleOnly||isOnSale(d);})
+      .filter(function(d){
+        if(!q)return true;
+        var parts=[d.name,d.brand,d.notes,d.tag].concat(d.tags||[]);
+        if(d.itemIds){outfitPieces(d).forEach(function(it){if(it)parts.push(it.name);});}
+        var hay=parts.filter(Boolean).join(" ").toLowerCase();
+        return hay.indexOf(q)>-1;
+      });
+    var s=state.sort;
+    res.sort(function(a,b){
+      if(s==="name")return String(a.name||"").localeCompare(String(b.name||""));
+      if(s==="old")return (a.createdAt||0)-(b.createdAt||0);
+      if(s==="phi"||s==="plo"){
+        var pa=priceNum(a.price),pb=priceNum(b.price);
+        if(pa==null&&pb==null)return (b.createdAt||0)-(a.createdAt||0);
+        if(pa==null)return 1; if(pb==null)return -1;
+        return s==="phi"?pb-pa:pa-pb;
+      }
+      return (b.createdAt||0)-(a.createdAt||0);
+    });
+    return res;
+  }
+
+  // ---- build tab: closet stack ----
+  // Selection is by TAP, never by scroll position. Scroll-snap is browsing only — tying
+  // selection to scroll means every re-render fights the user's thumb.
+  function buildRowItems(slot){
+    return state.items.filter(function(i){
+      if(i.status!=="bought")return false;
+      var sl=CAT_SLOT[i.category];
+      if(slot==="top")return sl==="top"||sl==="full";   // one-pieces browse alongside tops
+      return sl===slot;
+    });
+  }
+  function pickedItem(slot){var id=build.picks[slot];return id?findItem(id):null;}
+  function isFullActive(){var it=pickedItem("top");return !!(it&&CAT_SLOT[it.category]==="full");}
+  function buildPickedItems(){
+    var out=[],full=isFullActive();
+    BUILD_ROWS.forEach(function(r){
+      if(r[0]==="bottom"&&full)return;
+      var it=pickedItem(r[0]);if(it)out.push(it);
+    });
+    return out;
+  }
+  function buildFeedHtml(){
+    var items=buildPickedItems();
+    var primaries=items.filter(function(it){return it.color;}).map(function(it){return it.color;});
+    var h='<div class="bfrow">'+clashHtml(primaries)+'</div>';
+    var gaps=outfitGaps(items);
+    if(gaps.length)h+='<div class="bfrow gapnote">&#9873; missing: '+gaps.join(", ")+'</div>';
+    else if(items.length)h+='<div class="bfrow cnote">'+items.length+' piece'+(items.length===1?"":"s")+' picked</div>';
+    var ex=(build.extraIds||[]).filter(function(x){return !!findItem(x);});
+    if(ex.length)h+='<div class="bfrow cnote">+ '+ex.length+' piece'+(ex.length===1?"":"s")+' kept from this outfit that the stack can\'t show</div>';
+    return h;
+  }
+  function renderBuild(){
+    if(!build)build=freshBuild();
+    if(!state.items.some(function(i){return i.status==="bought";})){
+      return '<div class="empty"><div style="opacity:.35;margin-bottom:12px">'+hanger(40)+'</div>'+
+        '<div class="t">Nothing in your wardrobe yet.</div>'+
+        '<div class="s">The builder stacks pieces you own. Mark a few as bought first.</div></div>';
+    }
+    var full=isFullActive(), h='<div class="bstack">';
+    BUILD_ROWS.forEach(function(r){
+      var slot=r[0],label=r[1],rh=r[2],items=buildRowItems(slot),off=(slot==="bottom"&&full),pick=pickedItem(slot);
+      h+='<div class="brow'+(off?" off":"")+'" data-row="'+slot+'" style="--rh:'+rh+'px">';
+      h+='<div class="brhead"><span class="brlabel">'+esc(label)+'</span>';
+      h+='<span class="brpick'+(pick&&!off?"":" non")+'">'+(off?"covered by one-piece":(pick?esc(pick.name):"none"))+'</span></div>';
+      if(!items.length){
+        h+='<div class="brempty">nothing here yet</div>';
+      }else{
+        h+='<div class="blane"></div>';
+        h+='<div class="brscroll" data-scroll="'+slot+'">';
+        h+='<button class="bitem bnone'+(!pick?" on":"")+'" data-action="bpick" data-slot="'+slot+'" data-id=""><span class="bph"><span class="bnone-in">&times;</span></span></button>';
+        items.forEach(function(it){
+          h+='<button class="bitem'+(build.picks[slot]===it.id?" on":"")+'" data-action="bpick" data-slot="'+slot+'" data-id="'+it.id+'" title="'+esc(it.name)+'">';
+          h+='<span class="bph">';
+          var img=photoOf(it);
+          if(img)h+='<img src="'+esc(img)+'" alt="" loading="lazy"'+cutCls(it)+' onerror="this.style.display=\'none\'"/>';
+          else h+='<span class="bswatch" style="background:'+esc(it.color||"#E4DFD4")+'"></span>';
+          h+='</span></button>';
+        });
+        h+='</div>';
+      }
+      h+='</div>';
+    });
+    h+='</div>';
+    h+='<div class="bfeed"><div id="bFeed">'+buildFeedHtml()+'</div>';
+    h+='<div class="bbtns" id="bMain"><button class="savebtn" data-action="bopen">'+(build.editId?"Save changes":"Save outfit")+' &rarr;</button>';
+    h+='<button class="cancel" data-action="bclear">'+(build.editId?"Cancel edit":"Clear")+'</button>';
+    if(build.editId)h+='<button class="del" data-action="bdelete">Delete</button>';
+    h+='</div>';
+    h+='<div class="bsheet" id="bSheet">';
+    h+='<label class="fl">Name</label><input id="b_name" value="'+esc(build.name||"")+'" placeholder="Sunday layers"/>';
+    h+='<label class="fl">Occasion</label><select id="b_occasion"><option value="">— none —</option>';
+    OCCASIONS.forEach(function(o){h+='<option value="'+o[0]+'"'+(build.occasion===o[0]?" selected":"")+'>'+esc(o[1])+'</option>';});
+    h+='</select>';
+    h+='<label class="fl">Tags <span style="text-transform:none;letter-spacing:0">(comma-separated)</span></label><input id="b_tags" value="'+esc((build.tags||[]).join(", "))+'" placeholder="summer, going out"/>';
+    h+='<label class="fl">Notes</label><textarea id="b_notes" rows="2" style="resize:vertical" placeholder="occasion, what makes it work…">'+esc(build.notes||"")+'</textarea>';
+    h+='<div class="bbtns"><button class="savebtn" data-action="bsave">Save</button>';
+    h+='<button class="cancel" data-action="bclose">Back</button></div>';
+    h+='</div></div>';
+    return h;
+  }
+  function openBuildSheet(open){
+    var sh=document.getElementById("bSheet"),mn=document.getElementById("bMain");
+    if(!sh||!mn)return;
+    sh.classList.toggle("open",open);
+    mn.style.display=open?"none":"";
+    if(open){var n=document.getElementById("b_name");if(n)n.focus();}
+  }
+  function centreInRow(cont,el,smooth){
+    if(!cont||!el)return;
+    var cr=cont.getBoundingClientRect(),er=el.getBoundingClientRect();
+    var delta=(er.left-cr.left)-(cr.width-er.width)/2;
+    if(Math.abs(delta)<1)return;
+    if(!smooth){
+      var prev=cont.style.scrollBehavior;cont.style.scrollBehavior="auto";
+      cont.scrollLeft+=delta;cont.style.scrollBehavior=prev;
+    }else cont.scrollLeft+=delta;
+  }
+  function afterBuildRender(){
+    BUILD_ROWS.forEach(function(r){
+      var cont=document.querySelector('[data-scroll="'+r[0]+'"]');if(!cont)return;
+      var id=build.picks[r[0]];
+      var el=cont.querySelector('[data-id="'+(id||"")+'"]');
+      centreInRow(cont,el,false);
+    });
+  }
+  function refreshBuildChrome(){
+    var full=isFullActive();
+    BUILD_ROWS.forEach(function(r){
+      var slot=r[0],row=document.querySelector('.brow[data-row="'+slot+'"]');if(!row)return;
+      var off=(slot==="bottom"&&full);
+      row.classList.toggle("off",off);
+      var pick=pickedItem(slot),lbl=row.querySelector(".brpick");
+      if(lbl){
+        lbl.textContent=off?"covered by one-piece":(pick?pick.name:"none");
+        lbl.classList.toggle("non",!pick||off);
+      }
+      if(off){
+        var c=row.querySelector('[data-scroll="bottom"]');
+        if(c){
+          var noneEl=null;
+          [].forEach.call(c.querySelectorAll(".bitem"),function(b){
+            var isNone=!b.getAttribute("data-id");
+            b.classList.toggle("on",isNone);
+            if(isNone)noneEl=b;
+          });
+          centreInRow(c,noneEl,true);
+        }
+      }
+    });
+    var f=document.getElementById("bFeed");if(f)f.innerHTML=buildFeedHtml();
+  }
+  function buildPick(slot,id){
+    build.picks[slot]=id;
+    if(slot==="top"){
+      var it=id?findItem(id):null;
+      if(it&&CAT_SLOT[it.category]==="full")build.picks.bottom="";   // one-piece covers the bottom
+    }
+    var cont=document.querySelector('[data-scroll="'+slot+'"]');
+    if(cont){
+      var target=null;
+      [].forEach.call(cont.querySelectorAll(".bitem"),function(b){
+        var on=(b.getAttribute("data-id")||"")===(id||"");
+        b.classList.toggle("on",on);
+        if(on)target=b;
+      });
+      // tapping both selects AND slides it into the centre lane, so the middle of the
+      // stack always reads as the outfit you've currently got assembled
+      centreInRow(cont,target,true);
+    }
+    refreshBuildChrome();
+  }
+  function readBuildFields(){
+    var n=document.getElementById("b_name"),o=document.getElementById("b_occasion"),
+        t=document.getElementById("b_tags"),x=document.getElementById("b_notes");
+    if(n)build.name=n.value.trim();
+    if(o)build.occasion=o.value;
+    if(x)build.notes=x.value.trim();
+    if(t){
+      var tg=t.value.split(",").map(function(s){return s.trim().toLowerCase();}).filter(Boolean),uq=[];
+      tg.forEach(function(s){if(uq.indexOf(s)<0)uq.push(s);});
+      build.tags=uq;
+    }
+  }
+  function saveBuild(){
+    readBuildFields();
+    var items=buildPickedItems();
+    if(!items.length){alert("Pick at least one piece before saving.");return;}
+    var ids=items.map(function(it){return it.id;});
+    (build.extraIds||[]).forEach(function(x){if(ids.indexOf(x)<0&&findItem(x))ids.push(x);});
+    var o={id:build.editId||uid(),createdAt:Date.now(),name:build.name||"Untitled outfit",
+           occasion:build.occasion,tags:build.tags.slice(),notes:build.notes,
+           itemIds:ids,clashOk:null};
+    if(build.editId){
+      for(var i=0;i<state.outfits.length;i++)if(state.outfits[i].id===build.editId){
+        o.createdAt=state.outfits[i].createdAt;
+        o.clashOk=state.outfits[i].clashOk||null;   // stale sig simply won't match, so the flag returns
+        state.outfits[i]=o;break;
+      }
+    }else state.outfits.unshift(o);
+    build=freshBuild();save();
+    state.tab="outfits";state.statusF="all";state.tagF=null;state.colorF=null;state.catF=null;state.occF=null;state.saleOnly=false;state.search="";
+    var si=document.getElementById("search");if(si)si.value="";
+    render();
+  }
+  function loadOutfitIntoBuild(id){
+    var o=findOutfit(id);if(!o)return;
+    build=freshBuild();
+    build.editId=o.id;build.name=o.name||"";build.occasion=o.occasion||"";
+    build.tags=(o.tags||[]).slice();build.notes=o.notes||"";
+    (o.itemIds||[]).forEach(function(iid){
+      var it=findItem(iid);if(!it||it.status!=="bought")return;
+      var sl=CAT_SLOT[it.category];
+      if(sl==="full")sl="top";
+      if(sl&&build.picks.hasOwnProperty(sl)&&!build.picks[sl])build.picks[sl]=iid;
+      else build.extraIds.push(iid);   // no slot, or slot already taken
+    });
+    state.tab="build";render();
+  }
+
+  function render(){
+    var isBrand=state.tab==="brands", isWard=state.tab==="wardrobe", isOut=state.tab==="outfits", isCap=state.tab==="capsules";
+    document.getElementById("cPieces").textContent=state.items.filter(function(i){return i.status!=="bought";}).length;
+    document.getElementById("cWardrobe").textContent=state.items.filter(function(i){return i.status==="bought";}).length;
+    document.getElementById("cBrands").textContent=state.brands.length;
+    document.getElementById("cOutfits").textContent=state.outfits.length;
+    document.getElementById("cCapsules").textContent=state.capsules.length;
+    [].forEach.call(document.querySelectorAll(".tab"),function(t){t.classList.toggle("on",t.getAttribute("data-tab")===state.tab);});
+    if(state.tab==="build"){
+      document.getElementById("controls").style.display="none";
+      document.getElementById("stats").innerHTML="";
+      document.getElementById("content").innerHTML=renderBuild();
+      afterBuildRender();
+      return;
+    }
+    document.getElementById("controls").style.display="";
+    document.getElementById("addBtn").textContent=isBrand?"+ Add brand":isWard?"+ Add to wardrobe":isOut?"+ Build outfit":isCap?"+ New capsule":"+ Add piece";
+    document.getElementById("search").placeholder=isBrand?"Search brands, tags…":isWard?"Search your wardrobe…":isOut?"Search outfits, pieces…":isCap?"Search capsules…":"Search pieces, brands, tags…";
+
+    var data=baseData(), tags=allTags(data), html="";
+    var showColour=(state.tab==="pieces"||state.tab==="wardrobe");
+
+    var sortSel=document.getElementById("sortSel");
+    var sortOpts=[["new","Newest"],["old","Oldest"],["name","Name A–Z"]];
+    if(showColour){sortOpts.push(["phi","Price high→low"],["plo","Price low→high"]);}
+    if(sortOpts.map(function(o){return o[0];}).indexOf(state.sort)<0)state.sort="new";
+    sortSel.innerHTML=sortOpts.map(function(o){return '<option value="'+o[0]+'"'+(state.sort===o[0]?" selected":"")+'>'+o[1]+'</option>';}).join("");
+    document.getElementById("stats").innerHTML=statsHtml();
+
+    var opts=[];
+    if(isBrand){opts.push({key:"all",label:"All",color:"#1B1A17"});for(var k in BRAND_STATUS)opts.push({key:k,label:BRAND_STATUS[k].label,color:BRAND_STATUS[k].color});}
+    else if(!isWard&&!isOut&&!isCap){opts=[{key:"all",label:"All",color:"#1B1A17"},{key:"later",label:PIECE_STATUS.later.label,color:PIECE_STATUS.later.color},{key:"want",label:PIECE_STATUS.want.label,color:PIECE_STATUS.want.color}];}
+    if(opts.length&&data.length){
+      html+='<div class="filt" style="margin-top:12px">';
+      opts.forEach(function(o){
+        var on=state.statusF===o.key;
+        html+='<button class="seg'+(on?" on":"")+'" data-action="status" data-val="'+o.key+'" style="'+(on?("background:"+o.color+";border-color:"+o.color+";"):"")+'">'+esc(o.label)+'</button>';
+      });
+      html+='</div>';
+    }
+    if(showColour&&data.length){
+      html+='<div class="filt" style="margin-top:10px"><span class="tlabel">type</span>';
+      html+='<button class="seg'+(!state.catF?" on":"")+'" data-action="catf" data-val="" style="'+(!state.catF?"background:#1B1A17;border-color:#1B1A17;color:#fff;":"")+'">All</button>';
+      CATEGORIES.forEach(function(c){
+        var on=state.catF===c[0];
+        html+='<button class="seg'+(on?" on":"")+'" data-action="catf" data-val="'+c[0]+'" style="'+(on?"background:#1B1A17;border-color:#1B1A17;color:#fff;":"")+'">'+esc(c[1])+'</button>';
+      });
+      html+='</div>';
+      html+='<div class="filt" style="margin-top:8px"><span class="tlabel">occasion</span>';
+      html+='<button class="seg'+(!state.occF?" on":"")+'" data-action="occf" data-val="" style="'+(!state.occF?"background:#1B1A17;border-color:#1B1A17;color:#fff;":"")+'">All</button>';
+      OCCASIONS.forEach(function(o){
+        var on=state.occF===o[0];
+        html+='<button class="seg'+(on?" on":"")+'" data-action="occf" data-val="'+o[0]+'" style="'+(on?"background:#1B1A17;border-color:#1B1A17;color:#fff;":"")+'">'+esc(o[1])+'</button>';
+      });
+      html+='</div>';
+      html+='<div class="filt" style="margin-top:8px"><span class="tlabel">colour</span>';
+      html+='<button class="seg'+(!state.colorF?" on":"")+'" data-action="colorf" data-val="" style="'+(!state.colorF?"background:#1B1A17;border-color:#1B1A17;color:#fff;":"")+'">All</button>';
+      PALETTE.forEach(function(fam){
+        var on=state.colorF===fam.f;
+        html+='<button class="seg'+(on?" on":"")+'" data-action="colorf" data-val="'+esc(fam.f)+'" style="'+(on?"background:#1B1A17;border-color:#1B1A17;color:#fff;":"")+'">'+esc(fam.f)+'</button>';
+      });
+      html+='<button class="seg'+(state.saleOnly?" on":"")+'" data-action="saleonly" style="'+(state.saleOnly?"background:#9A6A12;border-color:#9A6A12;color:#fff;":"")+'">On sale</button>';
+      html+='</div>';
+    }
+    if(isOut&&data.length){
+      html+='<div class="filt" style="margin-top:10px"><span class="tlabel">occasion</span>';
+      html+='<button class="seg'+(!state.occF?" on":"")+'" data-action="occf" data-val="" style="'+(!state.occF?"background:#1B1A17;border-color:#1B1A17;color:#fff;":"")+'">All</button>';
+      OCCASIONS.forEach(function(o){
+        var on=state.occF===o[0];
+        html+='<button class="seg'+(on?" on":"")+'" data-action="occf" data-val="'+o[0]+'" style="'+(on?"background:#1B1A17;border-color:#1B1A17;color:#fff;":"")+'">'+esc(o[1])+'</button>';
+      });
+      html+='</div>';
+    }
+    if(tags.length){
+      html+='<div class="tagrow"><span class="tlabel">tags</span>';
+      tags.forEach(function(t){
+        var on=state.tagF===t;
+        html+='<button class="chip'+(on?" on":"")+'" data-action="tag" data-val="'+esc(t)+'">'+esc(t)+'</button>';
+      });
+      html+='</div>';
+    }
+    var vis=visible();
+    if(!vis.length){
+      var copy={pieces:["No pieces saved yet.","Add the next thing you want before it vanishes into your saves."],
+                wardrobe:["Your wardrobe is empty.","Mark a piece as bought, or add something you already own."],
+                outfits:["No outfits yet.","Build a look from pieces in your wardrobe. Populate the wardrobe first if it's empty."],
+                brands:["No brands saved yet.","Drop in a brand you like, one with a deal, or one to investigate."],
+                capsules:["No capsules yet.","A capsule is a named shortcut to a tag — e.g. \"Summer set\" or \"Vacation\". Tag pieces/outfits, then save the tag here to jump straight to them."]}[state.tab];
+      var filtered=data.length>0;
+      html+='<div class="empty"><div style="opacity:.35;margin-bottom:12px">'+hanger(40)+'</div>';
+      html+='<div class="t">'+(filtered?"Nothing matches that filter.":copy[0])+'</div>';
+      html+='<div class="s">'+(filtered?"Clear the search or filter to see everything.":copy[1])+'</div>';
+      if(!filtered){html+='<button class="add" data-action="add">'+document.getElementById("addBtn").textContent+'</button>';}
+      html+='</div>';
+    }else{
+      html+='<div class="grid '+(isBrand||isCap?"brands":isOut?"outfits":"pieces")+'">';
+      vis.forEach(function(d){html+= isBrand?brandCardHtml(d):isOut?outfitCardHtml(d):isCap?capsuleCardHtml(d):pieceCardHtml(d,isWard);});
+      html+='</div>';
+    }
+    document.getElementById("content").innerHTML=html;
+  }
+
+  function findItem(id){for(var i=0;i<state.items.length;i++)if(state.items[i].id===id)return state.items[i];return null;}
+  function setStatus(id,status){var it=findItem(id);if(it){it.status=status;save();render();}}
+  function toggleWish(id){var it=findItem(id);if(it){it.status=it.status==="later"?"want":"later";save();render();}}
+
+  function swatchGrid(role,selected){
+    var h='<div class="swwrap">';
+    if(role==="primary"){h+='<div class="swgrid"><button class="sw clear'+(!selected?" on":"")+'" data-action="pick" data-role="primary" data-hex="" title="No colour">&times;</button></div>';}
+    PALETTE.forEach(function(fam){
+      h+='<div class="swfam">'+esc(fam.f)+'</div><div class="swgrid">';
+      fam.list.forEach(function(c){
+        var on = role==="primary" ? selected===c[1] : (selected||[]).indexOf(c[1])>-1;
+        h+='<button class="sw'+(on?" on":"")+'" data-action="pick" data-role="'+role+'" data-hex="'+c[1]+'" style="background:'+c[1]+'" title="'+esc(c[0])+'"></button>';
+      });
+      h+='</div>';
+    });
+    return h+'</div>';
+  }
+  function refreshSwatches(){
+    var d=modalState.draft;
+    [].forEach.call(document.querySelectorAll(".sw"),function(s){
+      var role=s.getAttribute("data-role"),hex=s.getAttribute("data-hex");
+      var on = role==="primary" ? (d.color||"")===hex : (d.accents||[]).indexOf(hex)>-1;
+      s.classList.toggle("on",on);
+    });
+  }
+  function openModal(kind,draft){
+    modalState={kind:kind,draft:draft};
+    var d=draft, h="";
+    if(kind==="capsule"){
+      h+='<div class="mhead"><h2>'+(d.id?"Edit":"New")+' capsule</h2><button class="x" data-action="close">&times;</button></div>';
+      h+='<label class="fl">Name</label><input id="m_name" value="'+esc(d.name||"")+'" placeholder="Summer set"/>';
+      h+='<label class="fl">Tag <span style="text-transform:none;letter-spacing:0">(mark members with this exact tag on the piece/outfit)</span></label><input id="m_tag" value="'+esc(d.tag||"")+'" placeholder="summer26"/>';
+      h+='<label class="fl">Notes</label><textarea id="m_notes" rows="2" style="resize:vertical" placeholder="what this capsule is for…">'+esc(d.notes||"")+'</textarea>';
+      h+='<div class="mfoot">'+(d.id?'<button class="del" data-action="delete">Delete</button>':'<span></span>');
+      h+='<div class="mbtns"><button class="cancel" data-action="close">Cancel</button><button class="savebtn" data-action="save">Save</button></div></div>';
+      document.getElementById("modal").innerHTML=h;
+      document.getElementById("overlay").classList.add("show");
+      var nmc=document.getElementById("m_name");if(nmc)nmc.focus();
+      return;
+    }
+    var isPiece=kind==="piece";
+    var smap=isPiece?PIECE_STATUS:BRAND_STATUS;
+    h+='<div class="mhead"><h2>'+(d.id?"Edit":"New")+' '+(isPiece?"piece":"brand")+'</h2><button class="x" data-action="close">&times;</button></div>';
+    h+='<label class="fl">Name</label><input id="m_name" value="'+esc(d.name||"")+'" placeholder="'+(isPiece?"Wide-leg wool trousers":"Acne Studios")+'"/>';
+    if(isPiece){h+='<label class="fl">Brand</label><input id="m_brand" value="'+esc(d.brand||"")+'" placeholder="optional"/>';
+      h+='<label class="fl">Category</label><select id="m_cat"><option value="">— none —</option>';
+      var slotOrder=["head","top","bottom","outer","shoes","full","none"];
+      slotOrder.forEach(function(sl){
+        var grp=CATEGORIES.filter(function(c){return c[2]===sl;});
+        if(!grp.length)return;
+        h+='<optgroup label="'+esc(SLOT_LABEL[sl])+'">';
+        grp.forEach(function(c){h+='<option value="'+c[0]+'"'+(d.category===c[0]?" selected":"")+'>'+esc(c[1])+'</option>';});
+        h+='</optgroup>';
+      });
+      h+='</select>';
+      h+='<label class="fl">Occasion</label><select id="m_occasion"><option value="">— none —</option>';
+      OCCASIONS.forEach(function(o){h+='<option value="'+o[0]+'"'+(d.occasion===o[0]?" selected":"")+'>'+esc(o[1])+'</option>';});
+      h+='</select>';
+      h+='<label class="fl">Size</label><input id="m_size" value="'+esc(d.size||"")+'" placeholder="e.g. M, 32/32, 42 EU"/>';
+      h+='<label class="fl">How many</label><div class="mqty" id="mQty">'+qtyHtml("__draft",qtyOf(d))+'</div>';
+      h+='<div class="qhint">Identical pieces — same brand, same size, same colour — belong on one card with a count. Use Duplicate below if they differ in any way.</div>';
+      var cutOn=(d.cutout!==false);
+      var curCut=d.cutData||(d.id&&!d.photoData?photoCache[cutKey(d.id)]:"")||"";
+      var curRaw=d.photoData||(d.id?photoCache[d.id]:"")||"";
+      var curPhoto=(cutOn&&curCut)?curCut:curRaw;
+      h+='<label class="fl">Photo <span style="text-transform:none;letter-spacing:0">(auto-fills colours)</span></label>';
+      h+='<div class="photobox'+(curPhoto?" has":"")+(cutOn&&curCut?" cut":"")+'" data-action="takePhoto" id="photoBox">';
+      h+= curPhoto?('<img src="'+esc(curPhoto)+'" alt=""/>'):'<span class="photohint"><b>Take or choose a photo</b><br>colours fill in automatically</span>';
+      h+='</div>';
+      h+='<input type="file" id="m_photo" accept="image/*" capture="environment" hidden />';
+      h+='<div class="phrow" id="phRow" style="'+(curRaw?"":"display:none")+'">';
+      h+='<label class="cutlbl"><input type="checkbox" id="m_cutout"'+(cutOn?" checked":"")+' /> cut out background</label>';
+      h+='<button class="linkb" id="rmPhoto" data-action="clearPhoto">remove photo</button>';
+      h+='</div>';
+      h+='<div class="cutnote" id="cutNote">'+(curRaw&&!curCut?"couldn\'t separate this one from its background — using the photo as-is":"")+'</div>';
+    }
+    h+='<label class="fl">Link</label><input id="m_url" value="'+esc(d.url||"")+'" placeholder="https://…"/>';
+    if(isPiece){
+      h+='<div class="frow"><div style="flex:1"><label class="fl">Price</label><input id="m_price" value="'+esc(d.price||"")+'" placeholder="€120"/></div>';
+      h+='<div style="flex:1"><label class="fl">Was <span style="text-transform:none;letter-spacing:0">(if on sale)</span></label><input id="m_was" value="'+esc(d.wasPrice||"")+'" placeholder="€180"/></div></div>';
+      h+='<label class="fl">Image link (optional)</label><input id="m_image" value="'+esc(d.image||"")+'" placeholder="https://…jpg"/>';
+      h+='<label class="fl">Primary colour</label>'+swatchGrid("primary",d.color||"");
+      h+='<label class="fl">Accent colours (optional)</label>'+swatchGrid("accent",d.accents||[]);
+    }
+    h+='<label class="fl">Status</label><select id="m_status">';
+    for(var k in smap){h+='<option value="'+k+'"'+(d.status===k?" selected":"")+'>'+esc(smap[k].label)+'</option>';}
+    h+='</select>';
+    h+='<label class="fl">Tags <span style="text-transform:none;letter-spacing:0">(comma-separated)</span></label><input id="m_tags" value="'+esc((d.tags||[]).join(", "))+'" placeholder="winter, formal, sale"/>';
+    h+='<label class="fl">Notes</label><textarea id="m_notes" rows="'+(isPiece?2:3)+'" style="resize:vertical" placeholder="'+(isPiece?"size, fit, why you want it…":"quality check, sizing, price tier…")+'">'+esc(d.notes||"")+'</textarea>';
+    h+='<div class="mfoot">'+(d.id?'<button class="del" data-action="delete">Delete</button>':'<span></span>');
+    h+='<div class="mbtns">';
+    if(isPiece&&d.id)h+='<button class="cancel" data-action="duplicate" title="Copy everything into a new piece you can tweak">Duplicate</button>';
+    h+='<button class="cancel" data-action="close">Cancel</button><button class="savebtn" data-action="save">Save</button></div></div>';
+    document.getElementById("modal").innerHTML=h;
+    document.getElementById("overlay").classList.add("show");
+    var nm=document.getElementById("m_name");if(nm)nm.focus();
+  }
+  // Duplicate is for "same shirt, different colour" — a genuinely different piece that
+  // saves retyping. Photos are keyed by item id, so they have to be copied across too.
+  function duplicatePiece(){
+    if(!modalState||modalState.kind!=="piece"||!modalState.draft.id)return;
+    var src=findItem(modalState.draft.id);if(!src)return;
+    var copy=JSON.parse(JSON.stringify(src));
+    copy.id=uid();copy.createdAt=Date.now();copy.name=src.name+" (copy)";copy.qty=1;
+    if(photoCache[src.id]){photoCache[copy.id]=photoCache[src.id];idbPut(copy.id,photoCache[src.id]);}
+    if(photoCache[cutKey(src.id)]){photoCache[cutKey(copy.id)]=photoCache[cutKey(src.id)];idbPut(cutKey(copy.id),photoCache[cutKey(src.id)]);}
+    state.items.unshift(copy);save();
+    closeModal();render();
+    openModal("piece",JSON.parse(JSON.stringify(copy)));
+  }
+  function closeModal(){modalState=null;document.getElementById("overlay").classList.remove("show");document.getElementById("modal").innerHTML="";}
+  function clearFilters(){
+    state.statusF="all";state.tagF=null;state.colorF=null;state.catF=null;state.occF=null;state.saleOnly=false;state.search="";
+    var si=document.getElementById("search");if(si)si.value="";
+  }
+  function saveModal(){
+    if(!modalState)return;
+    var kind=modalState.kind, d=modalState.draft, creating=!(d&&d.id);
+    if(kind==="capsule"){
+      var cname=document.getElementById("m_name").value.trim();
+      var ctag=document.getElementById("m_tag").value.trim().toLowerCase();
+      if(!cname||!ctag)return;
+      var c={id:d.id,createdAt:d.createdAt,name:cname,tag:ctag,notes:document.getElementById("m_notes").value.trim()};
+      if(c.id){for(var r=0;r<state.capsules.length;r++)if(state.capsules[r].id===c.id){state.capsules[r]=c;break;}}
+      else{c.id=uid();c.createdAt=Date.now();state.capsules.unshift(c);}
+      save();closeModal();if(creating)clearFilters();render();return;
+    }
+    var isPiece=kind==="piece";
+    var name=document.getElementById("m_name").value.trim();
+    if(!name)return;
+    var tags=document.getElementById("m_tags").value.split(",").map(function(t){return t.trim().toLowerCase();}).filter(Boolean);
+    var uniq=[];tags.forEach(function(t){if(uniq.indexOf(t)<0)uniq.push(t);});
+    var obj={
+      id:d.id,createdAt:d.createdAt,name:name,
+      url:document.getElementById("m_url").value.trim(),
+      status:document.getElementById("m_status").value,
+      tags:uniq,notes:document.getElementById("m_notes").value.trim()
+    };
+    if(isPiece){
+      obj.brand=document.getElementById("m_brand").value.trim();
+      obj.category=document.getElementById("m_cat").value;
+      obj.occasion=document.getElementById("m_occasion").value;
+      obj.size=document.getElementById("m_size").value.trim();
+      obj.price=document.getElementById("m_price").value.trim();
+      obj.wasPrice=document.getElementById("m_was").value.trim();
+      obj.image=document.getElementById("m_image").value.trim();
+      obj.color=d.color||"";
+      obj.accents=(d.accents||[]).slice();
+      obj.qty=qtyOf(d);
+    }
+    var list=isPiece?state.items:state.brands;
+    if(obj.id){for(var i=0;i<list.length;i++)if(list[i].id===obj.id){list[i]=obj;break;}}
+    else{obj.id=uid();obj.createdAt=Date.now();list.unshift(obj);}
+    if(isPiece){
+      var dr=modalState.draft;
+      var cutBox=document.getElementById("m_cutout");
+      obj.cutout=cutBox?!!cutBox.checked:(dr.cutout!==false);
+      if(dr.photoData){
+        idbPut(obj.id,dr.photoData);photoCache[obj.id]=dr.photoData;obj.photo=true;
+        if(dr.cutData){idbPut(cutKey(obj.id),dr.cutData);photoCache[cutKey(obj.id)]=dr.cutData;}
+        else{idbDel(cutKey(obj.id));delete photoCache[cutKey(obj.id)];}
+      }
+      else if(dr.photoRemove){
+        idbDel(obj.id);delete photoCache[obj.id];obj.photo=false;
+        idbDel(cutKey(obj.id));delete photoCache[cutKey(obj.id)];
+      }
+      else obj.photo=!!dr.photo;
+    }
+    save();closeModal();if(creating)clearFilters();render();
+  }
+  function deleteModal(){
+    if(!modalState||!modalState.draft.id)return;
+    var kind=modalState.kind, id=modalState.draft.id;
+    if(kind==="piece"){
+      state.items=state.items.filter(function(x){return x.id!==id;});
+      state.outfits.forEach(function(o){o.itemIds=(o.itemIds||[]).filter(function(x){return x!==id;});});
+      idbDel(id);delete photoCache[id];
+      idbDel(cutKey(id));delete photoCache[cutKey(id)];
+    }
+    else if(kind==="outfit")state.outfits=state.outfits.filter(function(x){return x.id!==id;});
+    else if(kind==="capsule")state.capsules=state.capsules.filter(function(x){return x.id!==id;});
+    else state.brands=state.brands.filter(function(x){return x.id!==id;});
+    save();closeModal();render();
+  }
+  function openNew(){
+    if(state.tab==="brands")openModal("brand",{name:"",url:"",tags:[],notes:"",status:"cool"});
+    else if(state.tab==="outfits"||state.tab==="build"){build=freshBuild();state.tab="build";render();}
+    else if(state.tab==="capsules")openModal("capsule",{name:"",tag:"",notes:""});
+    else openModal("piece",{name:"",brand:"",category:"",occasion:"",size:"",qty:1,url:"",price:"",wasPrice:"",image:"",color:"",accents:[],tags:[],notes:"",status:state.tab==="wardrobe"?"bought":"later"});
+  }
+  function openEdit(id){
+    if(state.tab==="brands"){var b=null;state.brands.forEach(function(x){if(x.id===id)b=x;});if(b)openModal("brand",JSON.parse(JSON.stringify(b)));}
+    else if(state.tab==="capsules"){var c=findCapsule(id);if(c)openModal("capsule",JSON.parse(JSON.stringify(c)));}
+    else{var it=findItem(id);if(it)openModal("piece",JSON.parse(JSON.stringify(it)));}
+  }
+  function openEditOutfit(id){loadOutfitIntoBuild(id);}
+
+  // A backup must round-trip EVERYTHING. capsules + sizes were missing until v2 — any
+  // backup taken before this silently dropped them on restore.
+  function exportData(){
+    var payload={v:2,items:state.items,brands:state.brands,outfits:state.outfits,
+                 capsules:state.capsules,sizes:state.sizes,photos:photoCache,
+                 exportedAt:new Date().toISOString()};
+    var blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
+    var url=URL.createObjectURL(blob),a=document.createElement("a");
+    a.href=url;a.download="rack-backup-"+new Date().toISOString().slice(0,10)+".json";a.click();
+    setTimeout(function(){URL.revokeObjectURL(url);},1000);
+  }
+  function importData(file){
+    var r=new FileReader();
+    r.onload=function(){
+      try{
+        var data=JSON.parse(r.result);
+        if(!data||(!Array.isArray(data.items)&&!Array.isArray(data.brands)))throw 0;
+        if(!confirm("Replace everything currently in rack with this backup?"))return;
+        state.items=Array.isArray(data.items)?data.items:[];
+        state.brands=Array.isArray(data.brands)?data.brands:[];
+        state.outfits=Array.isArray(data.outfits)?data.outfits:[];
+        state.capsules=Array.isArray(data.capsules)?data.capsules:[];
+        state.sizes=(data.sizes&&typeof data.sizes==="object")?data.sizes:{};
+        var photos=(data.photos&&typeof data.photos==="object")?data.photos:{};
+        photoCache={};Object.keys(photos).forEach(function(id){photoCache[id]=photos[id];});
+        idbClear(function(){Object.keys(photos).forEach(function(id){idbPut(id,photos[id]);});});
+        migrateCategories(state.items);
+        build=freshBuild();
+        save();render();
+      }catch(e){alert("That file isn't a valid rack backup.");}
+    };
+    r.readAsText(file);
+  }
+
+  // Runs ON the shop page, which is the whole point — no CORS wall, full DOM access.
+  // Prefers schema.org/Product JSON-LD (brand, colour, sizes, price, real product image),
+  // falls back to OpenGraph, then to the largest image on the page.
+  function bookmarkletHref(){
+    var base=location.href.split("#")[0].replace(/'/g,"%27");
+    var c="(function(){";
+    c+="function M(p){var l=document.getElementsByTagName('meta'),i,e;for(i=0;i<l.length;i++){e=l[i];if(e.getAttribute('property')===p||e.getAttribute('name')===p)return e.content||'';}return '';}";
+    c+="function A(v){return Object.prototype.toString.call(v)==='[object Array]';}";
+    c+="function P(){var out=null;function w(n){if(!n||out)return;if(A(n)){for(var i=0;i<n.length;i++)w(n[i]);return;}if(typeof n!=='object')return;var t=n['@type'];if(t&&((t==='Product')||(A(t)&&t.indexOf('Product')>-1))){out=n;return;}if(n['@graph'])w(n['@graph']);for(var k in n){if(k!=='@graph'&&n[k]&&typeof n[k]==='object')w(n[k]);}}";
+    c+="var s=document.getElementsByTagName('script'),i;for(i=0;i<s.length;i++){if((s[i].type||'').indexOf('ld+json')<0)continue;try{w(JSON.parse(s[i].textContent));}catch(e){}}return out;}";
+    c+="function S(v){return (typeof v==='string')?v:(v&&v.name)?v.name:'';}";
+    c+="function I(v){if(!v)return '';if(typeof v==='string')return v;if(A(v))return I(v[0]);if(v.url)return v.url;return '';}";
+    c+="var p=P()||{},d={},q;";
+    c+="d.name=p.name||M('og:title')||document.title||'';";
+    c+="d.brand=S(p.brand)||M('og:site_name')||'';";
+    c+="d.colorName=(typeof p.color==='string')?p.color:'';";
+    c+="d.image=I(p.image)||M('og:image')||'';";
+    c+="var o=p.offers,ar=o?(A(o)?o:[o]):[],pr='',cu='';";
+    c+="for(q=0;q<ar.length;q++){var x=ar[q];if(!x)continue;var v=x.price||x.lowPrice;if(v&&!pr){pr=String(v);cu=x.priceCurrency||'';}}";
+    c+="if(!pr){pr=M('og:price:amount')||M('product:price:amount')||'';cu=M('og:price:currency')||M('product:price:currency')||'';}";
+    c+="var sy={EUR:'\\u20AC',USD:'$',GBP:'\\u00A3'}[cu]||(cu?cu+' ':'');";
+    c+="d.price=pr?(sy+pr):'';";
+    c+="var sz=[];function AS(v){if(v&&typeof v==='string'&&sz.indexOf(v)<0)sz.push(v);}AS(p.size);";
+    c+="for(q=0;q<ar.length;q++){if(!ar[q])continue;AS(ar[q].size);if(ar[q].itemOffered)AS(ar[q].itemOffered.size);}";
+    c+="var hv=p.hasVariant?(A(p.hasVariant)?p.hasVariant:[p.hasVariant]):[];for(q=0;q<hv.length;q++){if(hv[q])AS(hv[q].size);}";
+    c+="d.sizes=sz.slice(0,14);d.url=location.href;";
+    c+="if(!d.image){var b=null,im=document.images,j;for(j=0;j<im.length;j++){if(im[j].naturalWidth>200&&(!b||im[j].naturalWidth*im[j].naturalHeight>b.naturalWidth*b.naturalHeight))b=im[j];}if(b)d.image=b.src;}";
+    c+="function go(){var t=JSON.stringify(d);try{navigator.clipboard.writeText(t);}catch(e){}window.open('"+base+"#cap='+btoa(unescape(encodeURIComponent(t))),'rack');}";
+    // Inline the photo as data while we're still on the shop's origin — rack itself
+    // usually can't fetch a retailer CDN. Skip if it's too big to survive a URL.
+    c+="if(d.image&&d.image.indexOf('data:')!==0){fetch(d.image).then(function(r){return r.blob();}).then(function(bl){if(bl.size>260000){go();return;}var fr=new FileReader();fr.onload=function(){d.image=fr.result;go();};fr.onerror=go;fr.readAsDataURL(bl);})['catch'](go);}else go();";
+    c+="})();";
+    return "javascript:"+c;
+  }
+  // Shops name colours in words; rack stores hex. A stated colour beats pixel-averaging
+  // a photo that still contains its background, so this wins over extraction.
+  var COLOR_SYNONYMS={gray:"grey",anthracite:"charcoal",graphite:"charcoal",ecru:"cream",ivory:"cream",
+    offwhite:"white","off white":"white",camel:"tan",khaki:"olive",denim:"blue",indigo:"navy",
+    bordeaux:"burgundy",wine:"burgundy",maroon:"burgundy",taupe:"beige",sand:"beige",stone:"beige",
+    ink:"navy",coral:"pink",fuchsia:"magenta",lilac:"lavender",mint:"sage",emerald:"forest",petrol:"teal",ecrufarben:"cream"};
+  var _NAME2HEX=null;
+  function nameHexMap(){
+    if(_NAME2HEX)return _NAME2HEX;
+    _NAME2HEX={};PALETTE.forEach(function(f){f.list.forEach(function(c){_NAME2HEX[c[0]]=c[1];});});
+    return _NAME2HEX;
+  }
+  function colorFromName(s){
+    if(!s)return "";
+    var t=String(s).toLowerCase().replace(/[^a-z ]/g," ").replace(/\s+/g," ").trim();
+    if(!t)return "";
+    var names=nameHexMap();
+    if(names[t])return names[t];
+    for(var k in COLOR_SYNONYMS){if(t.indexOf(k)>-1&&names[COLOR_SYNONYMS[k]])return names[COLOR_SYNONYMS[k]];}
+    var best="",bl=0;
+    for(var n in names){if(t.indexOf(n)>-1&&n.length>bl){bl=n.length;best=names[n];}}
+    return best;
+  }
+  function openCapture(){
+    modalState={kind:"capture",draft:{}};
+    var h='<div class="mhead"><h2>Quick capture</h2><button class="x" data-action="close">&times;</button></div>';
+    h+='<p class="cnote" style="line-height:1.5;margin:0 0 8px">Drag this to your bookmarks bar. On any product page, click it — name, brand, colour, price, sizes and the product photo all come across, background already removed.</p>';
+    h+='<a id="bmk" class="add cap-a">&#43; Save to rack</a>';
+    h+='<p class="cnote" style="line-height:1.5;margin:14px 0 0">If the pop-up gets blocked, the item is also copied to your clipboard — paste it below. Pasting a bare link only saves the link: a page can\'t read another site for you, which is exactly what the bookmarklet gets around.</p>';
+    h+='<label class="fl">Paste a product URL or copied capture data</label>';
+    h+='<textarea id="cap_in" rows="3" style="resize:vertical" placeholder="https://…   or   {captured data}"></textarea>';
+    h+='<div class="mfoot"><span></span><div class="mbtns"><button class="cancel" data-action="close">Close</button><button class="savebtn" data-action="prefillCapture">Prefill</button></div></div>';
+    document.getElementById("modal").innerHTML=h;
+    document.getElementById("overlay").classList.add("show");
+    document.getElementById("bmk").href=bookmarkletHref();
+  }
+  function applyCapture(d){
+    if(!d||typeof d!=="object")return;
+    state.tab="pieces";state.statusF="all";state.tagF=null;state.colorF=null;state.catF=null;state.occF=null;state.saleOnly=false;
+    var si=document.getElementById("search");if(si)si.value="";state.search="";render();
+    var sizes=(Object.prototype.toString.call(d.sizes)==="[object Array]")?d.sizes.filter(Boolean):[];
+    var draft={name:d.name||"",brand:d.brand||"",category:"",occasion:"",
+      // one size listed means it's the size; a list of options is not a statement about you
+      size:sizes.length===1?String(sizes[0]):"",
+      url:d.url||"",price:d.price!=null?String(d.price):"",wasPrice:"",qty:1,
+      image:"",color:colorFromName(d.colorName)||"",accents:[],tags:[],
+      notes:sizes.length>1?("available: "+sizes.join(", ")):"",status:"later",cutout:true};
+    var src=d.image||"";
+    if(src&&src.indexOf("data:")!==0)draft.image=src;   // remote URL still displays even if unprocessable
+    openModal("piece",draft);
+    if(src)adoptCapturedImage(draft,src);
+  }
+  function adoptCapturedImage(draft,src){
+    function note(t){var cn=document.getElementById("cutNote");if(cn)cn.textContent=t;}
+    note("reading photo…");
+    processPhotoSrc(src,function(durl,pal){
+      if(!modalState||modalState.draft!==draft)return;
+      if(!durl){note(draft.image?"couldn't process that image here — showing the shop's photo as-is":"");return;}
+      draft.photoData=durl;draft.photoRemove=false;draft.image="";
+      var im=document.getElementById("m_image");if(im)im.value="";
+      if(pal){
+        if(!draft.color&&pal.color)draft.color=pal.color;
+        if(pal.accents&&!draft.accents.length)draft.accents=pal.accents.slice();
+      }
+      refreshSwatches();paintPhotoBox();note("removing background…");
+      makeCutout(durl,function(cut){
+        if(!modalState||modalState.draft!==draft)return;
+        draft.cutData=cut||null;paintPhotoBox();
+      });
+    });
+  }
+  function prefillCapture(){
+    var v=(document.getElementById("cap_in").value||"").trim();
+    if(!v){closeModal();return;}
+    var d=null;
+    if(v.charAt(0)==="{"){try{d=JSON.parse(v);}catch(e){d=null;}}
+    if(!d)d=/^https?:\/\//i.test(v)?{url:v}:{name:v};
+    closeModal();applyCapture(d);
+  }
+  function openSizes(){
+    modalState={kind:"sizes",draft:{}};
+    var s=state.sizes||{};
+    var h='<div class="mhead"><h2>Your sizes</h2><button class="x" data-action="close">&times;</button></div>';
+    h+='<p class="cnote" style="line-height:1.5;margin:0 0 4px">General reference for what you typically wear — doesn\'t change any individual piece.</p>';
+    h+='<label class="fl">Tops</label><input id="sz_top" value="'+esc(s.top||"")+'" placeholder="e.g. M"/>';
+    h+='<label class="fl">Bottoms</label><input id="sz_bottom" value="'+esc(s.bottom||"")+'" placeholder="e.g. 32/32"/>';
+    h+='<label class="fl">Shoes</label><input id="sz_shoes" value="'+esc(s.shoes||"")+'" placeholder="e.g. 43 EU"/>';
+    h+='<label class="fl">Outerwear / suits</label><input id="sz_outer" value="'+esc(s.outer||"")+'" placeholder="e.g. L / 50"/>';
+    h+='<label class="fl">Headwear</label><input id="sz_head" value="'+esc(s.head||"")+'" placeholder="e.g. 58cm / L"/>';
+    h+='<div class="mfoot"><span></span><div class="mbtns"><button class="cancel" data-action="close">Cancel</button><button class="savebtn" data-action="saveSizes">Save</button></div></div>';
+    document.getElementById("modal").innerHTML=h;
+    document.getElementById("overlay").classList.add("show");
+  }
+  function saveSizes(){
+    state.sizes={
+      top:document.getElementById("sz_top").value.trim(),
+      bottom:document.getElementById("sz_bottom").value.trim(),
+      shoes:document.getElementById("sz_shoes").value.trim(),
+      outer:document.getElementById("sz_outer").value.trim(),
+      head:document.getElementById("sz_head").value.trim()
+    };
+    save();closeModal();
+  }
+  function checkHash(){
+    var h=location.hash||"";
+    if(h.indexOf("#cap=")!==0)return;
+    var d=null;
+    try{d=JSON.parse(decodeURIComponent(escape(atob(h.slice(5)))));}catch(e){d=null;}
+    try{if(history&&history.replaceState)history.replaceState(null,"",location.pathname+location.search);else location.hash="";}catch(e){}
+    if(d)applyCapture(d);
+  }
+
+  document.getElementById("tabs").addEventListener("click",function(e){
+    var b=e.target.closest(".tab");if(!b)return;
+    state.tab=b.getAttribute("data-tab");
+    state.statusF="all";state.tagF=null;state.colorF=null;state.catF=null;state.occF=null;state.saleOnly=false;state.sort="new";state.search="";
+    document.getElementById("search").value="";render();
+  });
+  document.getElementById("search").addEventListener("input",function(e){state.search=e.target.value;render();});
+  document.getElementById("sortSel").addEventListener("change",function(e){state.sort=e.target.value;render();});
+  document.getElementById("captureBtn").addEventListener("click",openCapture);
+  document.getElementById("sizesBtn").addEventListener("click",openSizes);
+  document.getElementById("addBtn").addEventListener("click",openNew);
+  document.getElementById("exportBtn").addEventListener("click",exportData);
+  document.getElementById("importBtn").addEventListener("click",function(){document.getElementById("importFile").click();});
+  document.getElementById("importFile").addEventListener("change",function(e){if(e.target.files[0])importData(e.target.files[0]);e.target.value="";});
+
+  document.getElementById("content").addEventListener("click",function(e){
+    var b=e.target.closest("[data-action]");if(!b)return;
+    var act=b.getAttribute("data-action"),id=b.getAttribute("data-id"),val=b.getAttribute("data-val");
+    if(act==="edit")openEdit(id);
+    else if(act==="bought")setStatus(id,"bought");
+    else if(act==="relist")setStatus(id,"later");
+    else if(act==="toggle")toggleWish(id);
+    else if(act==="qtyUp"||act==="qtyDown"){
+      var qit=findItem(id);
+      if(qit){
+        var nq=qtyOf(qit)+(act==="qtyUp"?1:-1);
+        qit.qty=Math.max(1,Math.min(99,nq));
+        save();render();
+      }
+    }
+    else if(act==="status"){state.statusF=val;render();}
+    else if(act==="tag"){state.tagF=state.tagF===val?null:val;render();}
+    else if(act==="colorf"){state.colorF=val?(state.colorF===val?null:val):null;render();}
+    else if(act==="catf"){state.catF=val?(state.catF===val?null:val):null;render();}
+    else if(act==="occf"){state.occF=val?(state.occF===val?null:val):null;render();}
+    else if(act==="saleonly"){state.saleOnly=!state.saleOnly;render();}
+    else if(act==="add")openNew();
+    else if(act==="editOutfit")openEditOutfit(id);
+    else if(act==="dismissClash"){var o=findOutfit(id);if(o){o.clashOk=clashSig(o);save();render();}}
+    else if(act==="undoClash"){var o2=findOutfit(id);if(o2){o2.clashOk=null;save();render();}}
+    else if(act==="bpick"){
+      var bslot=b.getAttribute("data-slot");
+      if(bslot==="bottom"&&isFullActive())return;
+      buildPick(bslot,id||"");
+    }
+    else if(act==="bopen"){
+      if(!buildPickedItems().length){alert("Pick at least one piece first.");return;}
+      openBuildSheet(true);
+    }
+    else if(act==="bclose"){readBuildFields();openBuildSheet(false);}
+    else if(act==="bsave")saveBuild();
+    else if(act==="bclear"){build=freshBuild();render();}
+    else if(act==="bdelete"){
+      if(build.editId&&confirm("Delete this outfit?")){
+        var bdid=build.editId;
+        state.outfits=state.outfits.filter(function(x){return x.id!==bdid;});
+        build=freshBuild();save();state.tab="outfits";render();
+      }
+    }
+    else if(act==="viewCapsule"){
+      var cap=findCapsule(id);
+      if(cap){
+        state.tab=val;
+        state.statusF="all";state.colorF=null;state.catF=null;state.occF=null;state.saleOnly=false;state.search="";
+        state.tagF=cap.tag;
+        document.getElementById("search").value="";
+        render();
+      }
+    }
+  });
+
+  // keep the build tab's text fields mirrored into `build` so a re-render never loses typing
+  ["input","change"].forEach(function(ev){
+    document.getElementById("content").addEventListener(ev,function(){
+      if(state.tab==="build"&&build)readBuildFields();
+    });
+  });
+
+  var overlay=document.getElementById("overlay");
+  overlay.addEventListener("mousedown",function(e){if(e.target===overlay)closeModal();});
+  document.getElementById("modal").addEventListener("click",function(e){
+    var b=e.target.closest("[data-action]");if(!b)return;
+    var act=b.getAttribute("data-action");
+    if(act==="close")closeModal();
+    else if(act==="save")saveModal();
+    else if(act==="delete")deleteModal();
+    else if(act==="prefillCapture")prefillCapture();
+    else if(act==="saveSizes")saveSizes();
+    else if(act==="duplicate")duplicatePiece();
+    else if(act==="qtyUp"||act==="qtyDown"){
+      var dq=modalState.draft;
+      dq.qty=Math.max(1,Math.min(99,qtyOf(dq)+(act==="qtyUp"?1:-1)));
+      var box=document.getElementById("mQty");
+      if(box)box.innerHTML=qtyHtml("__draft",qtyOf(dq));
+    }
+    else if(act==="takePhoto"){var fi=document.getElementById("m_photo");if(fi)fi.click();}
+    else if(act==="clearPhoto"){
+      var dr=modalState.draft;dr.photoData=null;dr.cutData=null;
+      if(dr.id&&(photoCache[dr.id]||photoCache[cutKey(dr.id)]))dr.photoRemove=true;
+      var pb=document.getElementById("photoBox");
+      if(pb){pb.classList.remove("has");pb.classList.remove("cut");pb.innerHTML='<span class="photohint"><b>Take or choose a photo</b><br>colours fill in automatically</span>';}
+      var pr=document.getElementById("phRow");if(pr)pr.style.display="none";
+      var cn=document.getElementById("cutNote");if(cn)cn.textContent="";
+    }
+    else if(act==="pick"){
+      var role=b.getAttribute("data-role"),hex=b.getAttribute("data-hex"),d=modalState.draft;
+      if(role==="primary"){d.color=(d.color===hex)?"":hex;}
+      else{d.accents=d.accents||[];var ix=d.accents.indexOf(hex);if(ix>-1)d.accents.splice(ix,1);else d.accents.push(hex);}
+      refreshSwatches();
+    }
+  });
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&modalState)closeModal();});
+  function paintPhotoBox(){
+    if(!modalState)return;
+    var dr=modalState.draft,pb=document.getElementById("photoBox");if(!pb)return;
+    var cutOn=(dr.cutout!==false);
+    var raw=dr.photoData||(dr.id&&!dr.photoRemove?photoCache[dr.id]:"")||"";
+    var cut=dr.photoData?(dr.cutData||""):(dr.id&&!dr.photoRemove?(photoCache[cutKey(dr.id)]||""):"");
+    var show=(cutOn&&cut)?cut:raw;
+    pb.classList.toggle("has",!!show);
+    pb.classList.toggle("cut",!!(cutOn&&cut));
+    pb.innerHTML=show?('<img src="'+show+'" alt=""/>'):'<span class="photohint"><b>Take or choose a photo</b><br>colours fill in automatically</span>';
+    var pr=document.getElementById("phRow");if(pr)pr.style.display=raw?"":"none";
+    var cn=document.getElementById("cutNote");
+    if(cn)cn.textContent=(raw&&!cut)?"couldn't separate this one from its background — using the photo as-is":"";
+  }
+  document.getElementById("modal").addEventListener("change",function(e){
+    if(!e.target)return;
+    if(e.target.id==="m_cutout"){
+      if(modalState){modalState.draft.cutout=!!e.target.checked;paintPhotoBox();}
+      return;
+    }
+    if(e.target.id==="m_photo"&&e.target.files&&e.target.files[0]){
+      var pb=document.getElementById("photoBox");
+      if(pb){pb.classList.remove("has");pb.classList.remove("cut");pb.innerHTML='<span class="photohint">reading photo…</span>';}
+      processPhotoFile(e.target.files[0],function(durl,pal){
+        if(!modalState)return;
+        if(!durl){if(pb)pb.innerHTML='<span class="photohint">could not read that image</span>';return;}
+        var dr=modalState.draft;dr.photoData=durl;dr.photoRemove=false;dr.cutData=null;
+        if(pal){if(pal.color)dr.color=pal.color;if(pal.accents)dr.accents=pal.accents.slice();}
+        if(pb){pb.classList.add("has");pb.innerHTML='<img src="'+durl+'" alt=""/>';}
+        var pr=document.getElementById("phRow");if(pr)pr.style.display="";
+        var cn=document.getElementById("cutNote");if(cn)cn.textContent="removing background…";
+        refreshSwatches();
+        makeCutout(durl,function(cut){
+          if(!modalState||modalState.draft!==dr)return;
+          dr.cutData=cut||null;
+          paintPhotoBox();
+        });
+      });
+      e.target.value="";
+    }
+  });
+
+  // ---- backfill: give already-saved photos a cutout, one at a time, off the main path
+  var _cutQueue=[],_cutBusy=false;
+  function queueBackfill(){
+    _cutQueue=state.items.filter(function(it){
+      return photoCache[it.id]&&!photoCache[cutKey(it.id)]&&it.cutoutFailed!==true;
+    }).map(function(it){return it.id;});
+    runBackfill();
+  }
+  function runBackfill(){
+    if(_cutBusy||!_cutQueue.length)return;
+    _cutBusy=true;
+    var id=_cutQueue.shift(),src=photoCache[id];
+    if(!src){_cutBusy=false;runBackfill();return;}
+    makeCutout(src,function(cut){
+      var it=findItem(id);
+      if(cut){
+        photoCache[cutKey(id)]=cut;idbPut(cutKey(id),cut);
+        if(it&&it.cutout===undefined)it.cutout=true;
+        if(state.tab==="build"||state.tab==="wardrobe"||state.tab==="pieces")render();
+      }else if(it){it.cutoutFailed=true;}
+      save();
+      _cutBusy=false;
+      setTimeout(runBackfill,120);   // breathe between images so the UI stays responsive
+    });
+  }
+
+  // Ask the browser to treat this storage as durable rather than cache it can evict.
+  // Chrome/Firefox grant it on engagement; Safari ignores it — there, installing to the
+  // Home Screen is the real protection. Costs nothing to ask.
+  function requestPersistence(){
+    try{
+      if(navigator.storage&&navigator.storage.persist&&navigator.storage.persisted){
+        navigator.storage.persisted().then(function(already){
+          if(!already)navigator.storage.persist();
+        });
+      }
+    }catch(e){}
+  }
+  function boot(){ requestPersistence(); load(); idbAll(function(p){ photoCache=p||{}; render(); checkHash(); setTimeout(queueBackfill,600); }); }
+  window.addEventListener("hashchange",checkHash);
+  boot();
+})();
+</script>
+</body>
+</html>
